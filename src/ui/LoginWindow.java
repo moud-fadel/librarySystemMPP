@@ -1,8 +1,7 @@
 package ui;
 
-import business.ControllerInterface;
-import business.LoginException;
-import business.SystemController;
+import business.*;
+import dataaccess.DataAccessFacade;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -19,6 +18,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class LoginWindow extends Stage implements LibWindow {
 	public static final LoginWindow INSTANCE = new LoginWindow();
@@ -82,10 +83,15 @@ public class LoginWindow extends Stage implements LibWindow {
         	public void handle(ActionEvent e) {
         		try {
         			ControllerInterface c = new SystemController();
-        			c.login(userTextField.getText().trim(), pwBox.getText().trim());
-        			messageBar.setFill(Start.Colors.green);
+        		//	c.login(userTextField.getText().trim(), pwBox.getText().trim());
+                    DataAccessFacade dataAccessFacade = new DataAccessFacade();
+                    ArrayList<Author> aa = new ArrayList<>();
+                    aa.add(new Author("mahmoud","anwar","mr",new Address("1000 NT","FAIRFILED","IOWA","2222"),"android"));
+                     dataAccessFacade.saveNewBook(new Book("6666-22","mahmoud",4,aa));
+
+                    messageBar.setFill(Start.Colors.green);
              	    messageBar.setText("Login successful");
-        		} catch(LoginException ex) {
+        		} catch(Exception ex) {
         			messageBar.setFill(Start.Colors.red);
         			messageBar.setText("Error! " + ex.getMessage());
         		}

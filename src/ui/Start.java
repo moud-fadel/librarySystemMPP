@@ -22,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import ui.book.BookWindow;
 
 
 public class Start extends Application {
@@ -41,7 +42,8 @@ public class Start extends Application {
 	private static Stage[] allWindows = { 
 		LoginWindow.INSTANCE,
 		AllMembersWindow.INSTANCE,	
-		AllBooksWindow.INSTANCE
+		AllBooksWindow.INSTANCE,
+		BookWindow.INSTANCE
 	};
 	
 	public static void hideAllWindows() {
@@ -79,7 +81,7 @@ public class Start extends Application {
 		
 		Menu optionsMenu = new Menu("Options");
 		MenuItem login = new MenuItem("Login");
-		
+
 		login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
