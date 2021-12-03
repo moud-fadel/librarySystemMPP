@@ -2,17 +2,21 @@ package ui.book;
 
 import business.Author;
 import business.Book;
-import business.book.BookController;
+ import business.book.BookController;
 import business.book.iBookController;
+ import dataaccess.TestData;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import ui.author.AuthorWindow;
+import ui.main.MainWindow;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class BookWindowController {
+
+
     @FXML
     TextField textFieldISBN;
     @FXML
@@ -21,40 +25,78 @@ public class BookWindowController {
     TextField textMaxCheckoutNum;
     @FXML
     TextField textFieldCopyNum;
-    @FXML
-    ListView<Author> listViewBookAuthors;
+
     @FXML
     Button buttonAddAuthor;
     @FXML
     Button buttonAddBook;
 
 
+    @FXML
+    TableView<Author> tableAuhtors;
+    @FXML
+    TableColumn<Author, String> firstName;
+    @FXML
+    TableColumn<Author, String> lastName;
+    @FXML
+    TableColumn<Author, String> bio;
+
+    @FXML
+    TableView<Book> tableBooksData;
+    @FXML
+    TableColumn<Book, String> isbn;
+    @FXML
+    TableColumn<Book, String> title;
+    @FXML
+    TableColumn<Book, Integer> maxCheckoutLength;
+    @FXML
+    Button buttonClose;
+
+
     public BookWindowController() {
-listViewBookAuthors = new ListView<>();
+    }
+
+    @FXML
+    void initialize() {
+        isbn.setCellValueFactory(new PropertyValueFactory<Book, String>("isbn"));
+        title.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
+        maxCheckoutLength.setCellValueFactory(new PropertyValueFactory<Book, Integer>("maxCheckoutLength"));
+
+    }
+
+
+    @FXML
+    public void close() {
+        BookWindow.INSTANCE.hide();
+        MainWindow.primStage().show();
     }
 
     @FXML
     public void addNewBook() {
-       Book book = new Book(textFieldISBN.getText().toString()
-       ,textFieldBookTitle.getText().toLowerCase(Locale.ROOT),
-               Integer.parseInt(textMaxCheckoutNum.getText().toString()),listViewBookAuthors.getItems());
-         iBookController iBookController = new BookController();
+        ArrayList<Author> authorArrayList = new ArrayList<>();
+        TestData d = new TestData();
+        authorArrayList.add(d.allAuthors.get(0));
+        Book book = new Book(textFieldISBN.getText().toString()
+                , textFieldBookTitle.getText().toLowerCase(Locale.ROOT),
+                Integer.parseInt(textMaxCheckoutNum.getText().toString()), authorArrayList);
+        iBookController iBookController = new BookController();
         iBookController.addNewBook(book);
+        tableBooksData.getItems().add(book);
     }
 
     @FXML
     public void addAuthor() {
-       // MainWindow.hideAllWindows();
-        if(!AuthorWindow.INSTANCE.isInitialized()) {
+        // MainWindow.hideAllWindows();
+        if (!AuthorWindow.INSTANCE.isInitialized()) {
             AuthorWindow.INSTANCE.init();
         }
         AuthorWindow.INSTANCE.show();
     }
 
-    public void addAuthorToList(Author newAuthor){
-        listViewBookAuthors.getItems().add(newAuthor);
+    @FXML
+    public void addAuthorToList(Author newAuthor) {
+        tableAuhtors.getItems().add(newAuthor);
 
     }
-
-
 }
+
