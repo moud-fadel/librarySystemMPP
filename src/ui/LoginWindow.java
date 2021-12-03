@@ -1,8 +1,6 @@
 package ui;
 
-import business.ControllerInterface;
-import business.LoginException;
-import business.SystemController;
+import business.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -14,7 +12,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -22,9 +19,9 @@ import javafx.stage.Stage;
 
 public class LoginWindow extends Stage implements LibWindow {
 	public static final LoginWindow INSTANCE = new LoginWindow();
-	
+
 	private boolean isInitialized = false;
-	
+
 	public boolean isInitialized() {
 		return isInitialized;
 	}
@@ -35,11 +32,11 @@ public class LoginWindow extends Stage implements LibWindow {
 	public void clear() {
 		messageBar.setText("");
 	}
-	
+
 	/* This class is a singleton */
     private LoginWindow () {}
-    
-    public void init() { 
+
+    public void init() {
         GridPane grid = new GridPane();
         grid.setId("top-container");
         grid.setAlignment(Pos.CENTER);
@@ -76,20 +73,21 @@ public class LoginWindow extends Stage implements LibWindow {
         messageBox.setAlignment(Pos.BOTTOM_RIGHT);
         messageBox.getChildren().add(messageBar);;
         grid.add(messageBox, 1, 6);
-        
+
         loginBtn.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent e) {
         		try {
         			ControllerInterface c = new SystemController();
-        			c.login(userTextField.getText().trim(), pwBox.getText().trim());
-        			messageBar.setFill(Start.Colors.green);
+        		 	c.login(userTextField.getText().trim(), pwBox.getText().trim());
+
+                    messageBar.setFill(Start.Colors.green);
              	    messageBar.setText("Login successful");
-        		} catch(LoginException ex) {
+        		} catch(Exception ex) {
         			messageBar.setFill(Start.Colors.red);
         			messageBar.setText("Error! " + ex.getMessage());
         		}
-        	   
+
         	}
         });
 
@@ -108,8 +106,8 @@ public class LoginWindow extends Stage implements LibWindow {
         Scene scene = new Scene(grid);
         scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
         setScene(scene);
-        
+
     }
-	
-	
+
+
 }

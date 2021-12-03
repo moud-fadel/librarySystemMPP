@@ -22,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import ui.book.BookWindow;
 
 
 public class Start extends Application {
@@ -32,30 +33,31 @@ public class Start extends Application {
 	public static Stage primStage() {
 		return primStage;
 	}
-	
+
 	public static class Colors {
 		static Color green = Color.web("#034220");
 		static Color red = Color.FIREBRICK;
 	}
-	
-	private static Stage[] allWindows = { 
+
+	private static Stage[] allWindows = {
 		LoginWindow.INSTANCE,
-		AllMembersWindow.INSTANCE,	
-		AllBooksWindow.INSTANCE
+		AllMembersWindow.INSTANCE,
+		AllBooksWindow.INSTANCE,
+		BookWindow.INSTANCE
 	};
-	
+
 	public static void hideAllWindows() {
 		primStage.hide();
 		for(Stage st: allWindows) {
 			st.hide();
 		}
 	}
-	
+
 	@Override
 	public void start(Stage primaryStage) {
 		primStage = primaryStage;
 		primaryStage.setTitle("Main Page");
-				
+
 		VBox topContainer = new VBox();
 		topContainer.setId("top-container");
 		MenuBar mainMenu = new MenuBar();
@@ -72,14 +74,14 @@ public class Start extends Application {
         splashLabel.setFont(Font.font("Trajan Pro", FontWeight.BOLD, 30));
         splashBox.getChildren().add(splashLabel);
         splashBox.setAlignment(Pos.CENTER);
-		
+
 		topContainer.getChildren().add(mainMenu);
 		topContainer.getChildren().add(splashBox);
 		topContainer.getChildren().add(imageHolder);
-		
+
 		Menu optionsMenu = new Menu("Options");
 		MenuItem login = new MenuItem("Login");
-		
+
 		login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -90,8 +92,8 @@ public class Start extends Application {
     			LoginWindow.INSTANCE.clear();
     			LoginWindow.INSTANCE.show();
             }
-        });			
-							
+        });
+
 		MenuItem bookIds = new MenuItem("All Book Ids");
 		bookIds.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -111,7 +113,7 @@ public class Start extends Application {
 				AllBooksWindow.INSTANCE.show();
             }
 		});
-		
+
 		MenuItem memberIds = new MenuItem("All Member Ids");
 		memberIds.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -132,7 +134,7 @@ public class Start extends Application {
 				AllMembersWindow.INSTANCE.setData(sb.toString());
 				AllMembersWindow.INSTANCE.show();
             }
-		});	
+		});
 		optionsMenu.getItems().addAll(login, bookIds, memberIds);
 
 		mainMenu.getMenus().addAll(optionsMenu);
@@ -141,5 +143,5 @@ public class Start extends Application {
 		scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
 		primaryStage.show();
 	}
-	
+
 }

@@ -21,7 +21,7 @@ public class Main {
 		mems.addAll(members);
 		//implement
 		return null;
-		
+
 	}
 	//Returns a list of all ids of  LibraryMembers that have an overdue book
 	public static List<String> allHavingOverdueBook() {
@@ -31,9 +31,9 @@ public class Main {
 		mems.addAll(members);
 		//implement
 		return null;
-		
+
 	}
-	
+
 	//Returns a list of all isbns of  Books that have multiple authors
 	public static List<String> allHavingMultipleAuthors() {
 		DataAccess da = new DataAccessFacade();
@@ -42,7 +42,7 @@ public class Main {
 		bs.addAll(books);
 		//implement
 		return null;
-		
+
 		}
 
 }
