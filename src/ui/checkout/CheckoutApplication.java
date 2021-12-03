@@ -16,7 +16,7 @@ public class CheckoutApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CheckoutController.class.getResource("Checkout.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
-        stage.setTitle("Checkout");
+        stage.setTitle("Checkouts");
         stage.setScene(scene);
         stage.show();
     }
