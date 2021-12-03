@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import ui.main.MainController;
 import ui.view_checkout.ViewCheckoutController;
 
 import java.io.IOException;
@@ -212,6 +213,16 @@ public class CheckoutController {
         FXMLLoader fxmlLoader = new FXMLLoader(ViewCheckoutController.class.getResource("view_checkout.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
         viewCheckoutStage.setTitle("View Checkout");
+        viewCheckoutStage.setScene(scene);
+        viewCheckoutStage.show();
+    }
+    public void back() throws IOException {
+        Stage stage = (Stage) viewCheckoutButton.getScene().getWindow();
+        stage.close();
+        Stage viewCheckoutStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("main_view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
+        viewCheckoutStage.setTitle("Main");
         viewCheckoutStage.setScene(scene);
         viewCheckoutStage.show();
     }
