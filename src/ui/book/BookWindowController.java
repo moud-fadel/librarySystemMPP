@@ -36,9 +36,9 @@ public class BookWindowController {
 
 
     public void initialize() {
-        listViewBookAuthors.setItems(todoItems);
+      /*  listViewBookAuthors.setItems(todoItems);
         ToDoList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        populate();
+        populate();*/
     }
 
     public BookWindowController() {
