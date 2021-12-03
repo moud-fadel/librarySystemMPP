@@ -45,6 +45,8 @@ public class CheckoutController {
     @FXML
     public Button viewCheckoutButton;
     @FXML
+    public Button removeButton;
+    @FXML
     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     @FXML
     Alert infoAlert = new Alert(Alert.AlertType.INFORMATION);
@@ -79,7 +81,6 @@ public class CheckoutController {
         isbnColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getBook().getIsbn()));
         titleColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getBook().getTitle()));
         selectedBookTable.setItems(addBookToSelectedBookTable(bookCopy.get()));
-
 
 
         showInfoAlert("Book Added Success");
@@ -216,6 +217,7 @@ public class CheckoutController {
         viewCheckoutStage.setScene(scene);
         viewCheckoutStage.show();
     }
+
     public void back() throws IOException {
         Stage stage = (Stage) viewCheckoutButton.getScene().getWindow();
         stage.close();
@@ -225,5 +227,13 @@ public class CheckoutController {
         viewCheckoutStage.setTitle("Main");
         viewCheckoutStage.setScene(scene);
         viewCheckoutStage.show();
+    }
+
+    public void remove() {
+        BookCopy selectedItem = selectedBookTable.getSelectionModel().getSelectedItem();
+        selectedBookTable.getItems().remove(selectedItem);
+        this.bookCopyList.remove(selectedItem);
+        selectedBookTable.refresh();
+
     }
 }
