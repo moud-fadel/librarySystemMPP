@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="398.0" prefWidth="296.0" spacing="40.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.author.AuthorWindowController">
+    <children>
+        <Label layoutX="25.0" layoutY="14.0" text="Authors" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" underline="true">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <TableView fx:id="tableAuhtors" layoutY="49.0" prefHeight="323.0" prefWidth="368.0">
+            <columns>
+                <TableColumn fx:id="firstName" prefWidth="75.0" text="firstName" />
+                <TableColumn fx:id="lastName" prefWidth="75.0" text="lastName" />
+                <TableColumn fx:id="bio" prefWidth="150.0" text="bio" />
+            </columns>
+
+        </TableView>
+    </children>
+</VBox>
