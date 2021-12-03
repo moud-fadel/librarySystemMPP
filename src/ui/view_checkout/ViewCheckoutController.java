@@ -6,12 +6,18 @@ import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import ui.checkout.CheckoutController;
+import ui.main.MainController;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,6 +45,8 @@ public class ViewCheckoutController {
     public TableColumn<Checkout, LocalDate> checkOutDateColumn = new TableColumn<>();
     @FXML
     public TableColumn<Checkout, LocalDate> dueDateColumn = new TableColumn<>();
+    @FXML
+    public Button backButton;
     List<Checkout> checkoutList;
     public DataAccessFacade dataAccess = new DataAccessFacade();
 
@@ -79,6 +87,15 @@ public class ViewCheckoutController {
                 System.out.println("-------------------------------");
             }
         }
-
+    }
+    public void back() throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
+        Stage viewCheckoutStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(CheckoutController.class.getResource("Checkout.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
+        viewCheckoutStage.setTitle("Main");
+        viewCheckoutStage.setScene(scene);
+        viewCheckoutStage.show();
     }
 }
