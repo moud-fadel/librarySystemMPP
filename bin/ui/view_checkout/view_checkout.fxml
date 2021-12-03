@@ -31,9 +31,10 @@
         <TableView fx:id="checkoutTable" layoutX="75.0" layoutY="251.0" prefHeight="273.0" prefWidth="748.0">
             <columns>
                 <TableColumn fx:id="memberNameColumn" prefWidth="146.0" text="Member" />
-                <TableColumn fx:id="bookTitleColumn" prefWidth="170.0" text="Book Title" />
-                <TableColumn fx:id="checkOutDateColumn" prefWidth="246.0" text="Checkout Date" />
-                <TableColumn fx:id="dueDateColumn" prefWidth="181.0" text="Due Date" />
+                <TableColumn fx:id="bookTitleColumn" prefWidth="183.0" text="Book Title" />
+            <TableColumn fx:id="copyNoColumn" prefWidth="117.0" text="Copy No" />
+                <TableColumn fx:id="checkOutDateColumn" prefWidth="155.0" text="Checkout Date" />
+                <TableColumn fx:id="dueDateColumn" prefWidth="146.0" text="Due Date" />
             </columns>
         </TableView>
       <Button fx:id="backButton" layoutX="42.0" layoutY="26.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="114.0" text="Back" />
