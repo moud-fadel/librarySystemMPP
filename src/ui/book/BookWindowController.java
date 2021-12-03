@@ -4,6 +4,7 @@ import business.Author;
 import business.book.Book;
 import business.book.BookController;
 import business.book.iBookController;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -15,6 +16,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class BookWindowController {
+
+    private final List<Author> todoItems = FXCollections.observableArrayList();
+
     @FXML
     TextField textFieldISBN;
     @FXML
@@ -30,6 +34,12 @@ public class BookWindowController {
     @FXML
     Button buttonAddBook;
 
+
+    public void initialize() {
+        listViewBookAuthors.setItems(todoItems);
+        ToDoList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        populate();
+    }
 
     public BookWindowController() {
 listViewBookAuthors = new ListView<>();
@@ -55,6 +65,7 @@ listViewBookAuthors = new ListView<>();
 
     public void addAuthorToList(Author newAuthor){
         listViewBookAuthors.getItems().add(newAuthor);
+      //  listViewBookAuthors.
 
     }
 
