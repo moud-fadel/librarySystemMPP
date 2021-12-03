@@ -1,5 +1,7 @@
 package business.book;
 
+import business.Book;
+
 import java.io.Serializable;
 
 /**
