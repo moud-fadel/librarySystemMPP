@@ -5,10 +5,13 @@ import business.book.Book;
 import business.book.BookController;
 import business.book.iBookController;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.util.Callback;
 import ui.author.AuthorWindow;
 import ui.main.MainWindow;
 
@@ -17,7 +20,6 @@ import java.util.Locale;
 
 public class BookWindowController {
 
-    private final List<Author> todoItems = FXCollections.observableArrayList();
 
     @FXML
     TextField textFieldISBN;
@@ -34,11 +36,23 @@ public class BookWindowController {
     @FXML
     Button buttonAddBook;
 
+    private ObservableList observableList = FXCollections.observableArrayList();
+    private List<Author> authorsList;
 
-    public void initialize() {
-      /*  listViewBookAuthors.setItems(todoItems);
-        ToDoList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        populate();*/
+
+    @FXML
+    void initialize() {
+
+
+        observableList.setAll(authorsList);
+        listViewBookAuthors.setItems(observableList);
+
+        listViewBookAuthors.setCellFactory(new Callback<ListView<Author>, ListCell<Author>>() {
+            @Override
+            public ListCell<Author> call(ListView<Author> param) {
+                return null;
+            }
+        });
     }
 
     public BookWindowController() {
@@ -64,8 +78,9 @@ listViewBookAuthors = new ListView<>();
     }
 
     public void addAuthorToList(Author newAuthor){
-        listViewBookAuthors.getItems().add(newAuthor);
-      //  listViewBookAuthors.
+        authorsList.add(newAuthor) ;
+        listViewBookAuthors.refresh();
+        //  listViewBookAuthors.
 
     }
 
