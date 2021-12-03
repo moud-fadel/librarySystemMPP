@@ -24,7 +24,7 @@ public class BookWindowController {
     @FXML
     TextField textFieldCopyNum;
     @FXML
-    ListView listViewBookAuthors;
+    ListView<Author> listViewBookAuthors;
     @FXML
     Button buttonAddAuthor;
     @FXML
@@ -32,7 +32,7 @@ public class BookWindowController {
 
 
     public BookWindowController() {
-
+listViewBookAuthors = new ListView<>();
     }
 
     @FXML
