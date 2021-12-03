@@ -36,7 +36,7 @@ public class AuthorWindowController implements Initializable {
         firstName.setCellValueFactory(new PropertyValueFactory<Author, String>("firstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<Author, String>("lastName"));
         bio.setCellValueFactory(new PropertyValueFactory<Author, String>("bio"));
-        tableAuhtors.getItems().setAll( s.allAuthors);
+        tableAuhtors.getItems().setAll(s.allAuthors);
         tableAuhtors.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 tableAuhtors.getSelectionModel().clearSelection();

@@ -2,12 +2,10 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
-<?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -21,7 +19,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="74.0" prefHeight="238.0" prefWidth="406.0" style="-fx-background-color: #ffffff;">
+      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="74.0" prefHeight="191.0" prefWidth="406.0" style="-fx-background-color: #ffffff;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="223.20001220703125" minWidth="10.0" prefWidth="114.40001220703125" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="364.0" minWidth="10.0" prefWidth="244.79998779296875" />
@@ -30,40 +28,40 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Title" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Label text="ISBN" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Label text="Max checkout" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Label text="Copies number" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
             <TextField fx:id="textFieldISBN" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="269.0" GridPane.columnIndex="1" />
             <TextField fx:id="textMaxCheckoutNum" prefHeight="58.0" prefWidth="264.0" snapToPixel="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="textFieldCopyNum" prefHeight="60.0" prefWidth="264.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="textFieldBookTitle" prefHeight="60.0" prefWidth="268.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
          <effect>
             <Blend />
          </effect>
       </GridPane>
       <Button fx:id="buttonAddBook" layoutX="366.0" layoutY="9.0" mnemonicParsing="false" onAction="#addNewBook" text="SAVE" />
-      <ListView  fx:id="listViewBookAuthors" layoutX="13.0" layoutY="376.0" prefHeight="184.0" prefWidth="414.0" />
-      <Label layoutX="14.0" layoutY="330.0" text="Authors" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" underline="true">
+      <Label layoutX="14.0" layoutY="296.0" text="Authors" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" underline="true">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <TableView fx:id="tableBooksData" layoutX="430.0" prefHeight="574.0" prefWidth="392.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="430.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ISBN" />
-          <TableColumn prefWidth="116.79998779296875" text="Title" />
-          <TableColumn prefWidth="112.0001220703125" text="Checkout Max" />
-          <TableColumn prefWidth="83.9998779296875" text="Copies No." />
+          <TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
+          <TableColumn fx:id="title" prefWidth="116.79998779296875" text="Title" />
+          <TableColumn fx:id="maxCheckoutLength" prefWidth="112.0001220703125" text="Checkout Max" />
+         </columns>
+      </TableView>
+      <Button fx:id="buttonAddAuthor" layoutX="295.0" layoutY="298.0" mnemonicParsing="false" onAction="#addAuthor" prefHeight="30.0" prefWidth="141.0" text="NEW AUTHOR" />
+      <TableView fx:id="tableAuhtors" layoutX="3.0" layoutY="334.0" prefHeight="239.0" prefWidth="427.0">
+        <columns>
+          <TableColumn fx:id="firstName" prefWidth="75.0" text="firstName" />
+          <TableColumn fx:id="lastName" prefWidth="75.0" text="lastName" />
+          <TableColumn fx:id="bio" prefWidth="120.0" text="bio" />
         </columns>
       </TableView>
-      <Button layoutX="289.0" layoutY="9.0" mnemonicParsing="false" text="CLOSE">
-         <effect>
-            <Bloom />
-         </effect></Button>
-      <Button fx:id="buttonAddAuthor" layoutX="288.0" layoutY="336.0" mnemonicParsing="false" onAction="#addAuthor" prefHeight="30.0" prefWidth="141.0" text="NEW AUTHOR" />
+      <Button fx:id="buttonClose" layoutX="295.0" layoutY="9.0" mnemonicParsing="false" onAction="#close" text="CLODE" />
    </children>
 </AnchorPane>
