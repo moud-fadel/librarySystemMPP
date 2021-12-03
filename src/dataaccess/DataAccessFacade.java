@@ -9,10 +9,8 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 
-import business.Book;
-import business.BookCopy;
+import business.book.Book;
 import business.LibraryMember;
-import dataaccess.DataAccessFacade.StorageType;
 
 
 public class DataAccessFacade implements DataAccess {
@@ -116,7 +114,9 @@ public class DataAccessFacade implements DataAccess {
 			if(in != null) {
 				try {
 					in.close();
-				} catch(Exception e) {}
+				} catch(Exception e) {
+					int x = 4;
+				}
 			}
 		}
 		return retVal;

@@ -1,6 +1,7 @@
 package ui;
 
 import business.*;
+import business.book.Book;
 import dataaccess.DataAccessFacade;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,7 +14,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -83,11 +83,7 @@ public class LoginWindow extends Stage implements LibWindow {
         	public void handle(ActionEvent e) {
         		try {
         			ControllerInterface c = new SystemController();
-        		//	c.login(userTextField.getText().trim(), pwBox.getText().trim());
-                    DataAccessFacade dataAccessFacade = new DataAccessFacade();
-                    ArrayList<Author> aa = new ArrayList<>();
-                    aa.add(new Author("mahmoud","anwar","mr",new Address("1000 NT","FAIRFILED","IOWA","2222"),"android"));
-                     dataAccessFacade.saveNewBook(new Book("6666-22","mahmoud",4,aa));
+        		 	c.login(userTextField.getText().trim(), pwBox.getText().trim());
 
                     messageBar.setFill(Start.Colors.green);
              	    messageBar.setText("Login successful");

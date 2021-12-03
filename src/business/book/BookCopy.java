@@ -1,4 +1,4 @@
-package business;
+package business.book;
 
 import java.io.Serializable;
 

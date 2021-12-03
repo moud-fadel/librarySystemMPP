@@ -6,7 +6,7 @@ import java.util.List;
 
 import business.Address;
 import business.Author;
-import business.Book;
+import business.book.Book;
 import business.LibraryMember;
 
 /**
@@ -19,11 +19,11 @@ import business.LibraryMember;
  * 
  *
  */
-public class TestData {
+public class DemoData {
 	
 	
 	public static void main(String[] args) {
-		TestData td = new TestData();
+		DemoData td = new DemoData();
 		td.bookData();
 		td.libraryMemberData();
 		td.userData();

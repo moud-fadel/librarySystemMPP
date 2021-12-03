@@ -2,6 +2,7 @@ package business;
 
 import java.util.*;
 
+import business.book.Book;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 
