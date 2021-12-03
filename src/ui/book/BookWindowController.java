@@ -15,6 +15,7 @@ import javafx.util.Callback;
 import ui.author.AuthorWindow;
 import ui.main.MainWindow;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -42,8 +43,7 @@ public class BookWindowController {
 
     @FXML
     void initialize() {
-
-
+        authorsList = new ArrayList<>();
         observableList.setAll(authorsList);
         listViewBookAuthors.setItems(observableList);
 
@@ -56,29 +56,29 @@ public class BookWindowController {
     }
 
     public BookWindowController() {
-listViewBookAuthors = new ListView<>();
+        listViewBookAuthors = new ListView<>();
     }
 
     @FXML
     public void addNewBook() {
-       Book book = new Book(textFieldISBN.getText().toString()
-       ,textFieldBookTitle.getText().toLowerCase(Locale.ROOT),
-               Integer.parseInt(textMaxCheckoutNum.getText().toString()),listViewBookAuthors.getItems());
-         iBookController iBookController = new BookController();
+        Book book = new Book(textFieldISBN.getText().toString()
+                , textFieldBookTitle.getText().toLowerCase(Locale.ROOT),
+                Integer.parseInt(textMaxCheckoutNum.getText().toString()), listViewBookAuthors.getItems());
+        iBookController iBookController = new BookController();
         iBookController.addNewBook(book);
     }
 
     @FXML
     public void addAuthor() {
-       // MainWindow.hideAllWindows();
-        if(!AuthorWindow.INSTANCE.isInitialized()) {
+        // MainWindow.hideAllWindows();
+        if (!AuthorWindow.INSTANCE.isInitialized()) {
             AuthorWindow.INSTANCE.init();
         }
         AuthorWindow.INSTANCE.show();
     }
 
-    public void addAuthorToList(Author newAuthor){
-        authorsList.add(newAuthor) ;
+    public void addAuthorToList(Author newAuthor) {
+        authorsList.add(newAuthor);
         listViewBookAuthors.refresh();
         //  listViewBookAuthors.
 
