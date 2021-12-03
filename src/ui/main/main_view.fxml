@@ -1,41 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.main.MainController">
-   <Label layoutX="184.0" layoutY="36.0" text="Library Management System" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" underline="true">
-      <font>
-         <Font name="System Bold" size="36.0" />
-      </font>
-   </Label>
-   <Button id="buttonAddMember" fx:id="buttonAddMember" layoutX="445.0" layoutY="336.0" mnemonicParsing="false" onAction="#addMemberHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #e16700;" text="Add Member" textFill="WHITE">
-      <font>
-         <Font name="System Bold" size="24.0" />
-      </font>
-   </Button>
-   <Button id="buttonAddBook" fx:id="buttonAddBook" layoutX="126.0" layoutY="142.0" mnemonicParsing="false" onAction="#addBookHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #0060aa;" text="Add Book" textFill="#fafafa">
-      <font>
-         <Font name="System Bold" size="24.0" />
-      </font>
-   </Button>
-   <Button id="buttonCheckout" fx:id="buttonCheckout" layoutX="445.0" layoutY="142.0" mnemonicParsing="false" onAction="#addCheckoutHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #2ec7eb;" text="Checkout" textFill="WHITE">
-      <font>
-         <Font name="System Bold" size="24.0" />
-      </font>
-   </Button>
-   <Button id="buttonAddCopy" fx:id="buttonAddCopy" layoutX="126.0" layoutY="336.0" mnemonicParsing="false" onAction="#addAddCopyHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #face00;" text="Add copy" textFill="WHITE">
-      <font>
-         <Font name="System Bold" size="24.0" />
-      </font>
-   </Button>
-   <ImageView fitHeight="97.0" fitWidth="89.0" layoutX="82.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@libicon.png" />
-      </image>
-   </ImageView>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="825.0"
+            prefWidth="825.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ui.main.MainController">
+    <children>
+        <Label layoutX="184.0" layoutY="36.0" text="Library Management System" textAlignment="CENTER"
+               textOverrun="CENTER_ELLIPSIS" underline="true">
+            <font>
+                <Font name="System Bold" size="36.0"/>
+            </font>
+        </Label>
+        <Button id="buttonAddMember" fx:id="buttonAddMember" layoutX="445.0" layoutY="336.0" mnemonicParsing="false"
+                onAction="#addMemberHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #e16700;"
+                text="Add Member" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="24.0"/>
+            </font>
+        </Button>
+        <Button id="buttonAddBook" fx:id="buttonAddBook" layoutX="126.0" layoutY="142.0" mnemonicParsing="false"
+                onAction="#addBookHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #0060aa;"
+                text="Add Book" textFill="#fafafa">
+            <font>
+                <Font name="System Bold" size="24.0"/>
+            </font>
+        </Button>
+        <Button id="buttonCheckout" fx:id="buttonCheckout" layoutX="445.0" layoutY="142.0" mnemonicParsing="false"
+                onAction="#addCheckoutHandler" prefHeight="158.0" prefWidth="256.0"
+                style="-fx-background-color: #2ec7eb;" text="Checkout" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="24.0"/>
+            </font>
+        </Button>
+        <Button id="buttonAddCopy" fx:id="buttonAddCopy" layoutX="126.0" layoutY="336.0" mnemonicParsing="false"
+                onAction="#addAddCopyHandler" prefHeight="158.0" prefWidth="256.0"
+                style="-fx-background-color: #face00;" text="Add copy" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="24.0"/>
+            </font>
+        </Button>
+        <ImageView fitHeight="97.0" fitWidth="89.0" layoutX="82.0" layoutY="36.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@libicon.png"/>
+            </image>
+        </ImageView>
+        <Button id="buttonAddCopy" fx:id="overDueBookButton" layoutX="126.0" layoutY="536.0" mnemonicParsing="false"
+                onAction="#overDueBook" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #face00;"
+                text="Overdue Book" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="24.0"/>
+            </font>
+        </Button>
+    </children>
 </AnchorPane>
