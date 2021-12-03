@@ -13,11 +13,14 @@ import ui.AllBooksWindow;
 import ui.AllMembersWindow;
 import ui.LibWindow;
 import ui.LoginWindow;
+import ui.book.BookWindow;
 
 import java.io.IOException;
 
 public class MainWindow extends Application {
+    public static final MainWindow INSTANCE = new MainWindow();
 
+    private boolean isInitialized = false;
 
     private static Stage primStage = null;
     public static Stage primStage() {
@@ -42,6 +45,14 @@ public class MainWindow extends Application {
             st.hide();
         }
     }
+
+    public boolean isInitialized() {
+        return isInitialized;
+    }
+    public void isInitialized(boolean val) {
+        isInitialized = val;
+    }
+
 
     @Override
     public void start(Stage stage) throws Exception {

@@ -47,14 +47,14 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tableBooksData" layoutX="430.0" prefHeight="574.0" prefWidth="392.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="430.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="tableBooksData" layoutX="440.0" prefHeight="574.0" prefWidth="382.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
         <columns>
           <TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
           <TableColumn fx:id="title" prefWidth="116.79998779296875" text="Title" />
           <TableColumn fx:id="maxCheckoutLength" prefWidth="112.0001220703125" text="Checkout Max" />
          </columns>
       </TableView>
-      <Button fx:id="buttonAddAuthor" layoutX="295.0" layoutY="298.0" mnemonicParsing="false" onAction="#addAuthor" prefHeight="30.0" prefWidth="141.0" text="NEW AUTHOR" />
+      <Button fx:id="buttonAddAuthor" layoutX="280.0" layoutY="298.0" mnemonicParsing="false" onAction="#addAuthor" prefHeight="30.0" prefWidth="141.0" text="NEW AUTHOR" />
       <TableView fx:id="tableAuhtors" layoutX="3.0" layoutY="334.0" prefHeight="239.0" prefWidth="427.0">
         <columns>
           <TableColumn fx:id="firstName" prefWidth="75.0" text="firstName" />

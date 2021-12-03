@@ -67,8 +67,11 @@ public class BookWindowController {
 
     @FXML
     public void close() {
+
         BookWindow.INSTANCE.hide();
-        MainWindow.primStage().show();
+        if (!MainWindow.primStage().isShowing()) {
+            MainWindow.primStage().show();
+        }
     }
 
     @FXML
