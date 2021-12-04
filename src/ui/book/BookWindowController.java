@@ -6,7 +6,7 @@ import business.book.BookController;
 import business.book.iBookController;
 import dataaccess.DataAccessFacade;
 import dataaccess.TestData;
-  import javafx.collections.FXCollections;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -57,6 +57,10 @@ public class BookWindowController {
     @FXML
     ComboBox<Author> comboAuthors;
 
+    @FXML
+    Spinner<Integer> spinnerMaxCheckout = new Spinner<>(1, 10, 1);
+    SpinnerValueFactory<Integer> valueFactory = //
+            new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
     public BookWindowController() {
     }
 
@@ -73,7 +77,7 @@ public class BookWindowController {
 
         TestData testData = new TestData();
         comboAuthors.setItems(FXCollections.observableArrayList(testData.allAuthors));
-
+        spinnerMaxCheckout.setValueFactory(valueFactory);
       /*  comboAuthors.valueProperty().addListener(new ChangeListener<Author>() {
             @Override
             public void changed(ObservableValue<? extends Author> observable, Author oldValue, Author newValue) {
@@ -106,7 +110,7 @@ public class BookWindowController {
             Utils.SHOW_ERROR_ALERT("Please enter book title");
             return;
         }
-        if (textMaxCheckoutNum.getText().trim().equalsIgnoreCase("")) {
+        if (spinnerMaxCheckout.getValue().toString().equalsIgnoreCase("")) {
             Utils.SHOW_ERROR_ALERT("Please enter book max checkout count");
             return;
         }
@@ -126,7 +130,7 @@ public class BookWindowController {
         authorArrayList.addAll(tableAuhtors.getItems());
         Book book = new Book(textFieldISBN.getText().toString()
                 , textFieldBookTitle.getText().toLowerCase(Locale.ROOT),
-                Integer.parseInt(textMaxCheckoutNum.getText().toString()),authorArrayList);
+                Integer.parseInt(spinnerMaxCheckout.getValue().toString()), authorArrayList);
         iBookController iBookController = new BookController();
         iBookController.addNewBook(book);
         tableBooksData.getItems().add(book);
@@ -146,8 +150,17 @@ public class BookWindowController {
             AuthorWindow.INSTANCE.init();
         }
         AuthorWindow.INSTANCE.show();*/
+        if (isAuthorExist(comboAuthors.getValue())) {
+            Utils.SHOW_ERROR_ALERT("You already added this author");
+            return;
+        }
         tableAuhtors.getItems().add(comboAuthors.getValue());
 
+    }
+
+    private boolean isAuthorExist(Author value) {
+        if (tableAuhtors.getItems().contains(value)) return true;
+        return false;
     }
 
     public void addAuthorToList(Author newAuthor) {

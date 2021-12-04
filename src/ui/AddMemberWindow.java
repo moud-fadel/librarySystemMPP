@@ -35,6 +35,7 @@ public class AddMemberWindow extends Stage implements LibWindow {
 				Parent root = FXMLLoader.load(getClass().getResource("AddMemberWindow.fxml"));
 				Scene scene = new Scene(root, Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
 				AddMemberWindow.INSTANCE.setScene(scene);
+				AddMemberWindow.INSTANCE.setTitle("Add member");
 		        AddMemberWindow.INSTANCE.show();
 		        
 			} catch (IOException e1) {
