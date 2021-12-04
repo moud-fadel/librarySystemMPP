@@ -153,7 +153,7 @@ public class Start extends Application {
 		 optionsMenu.getItems().addAll(login, bookIds, memberIds);
 
 		mainMenu.getMenus().addAll(optionsMenu);
-		Scene scene = new Scene(topContainer, 800, 800);
+		Scene scene = new Scene(topContainer, Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
 		primaryStage.setScene(scene);
 		scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
 		primaryStage.show();

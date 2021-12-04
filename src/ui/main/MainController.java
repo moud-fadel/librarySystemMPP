@@ -93,7 +93,7 @@ public class MainController {
          Stage viewCheckoutStage = new Stage();*/
         Start.hideAllWindows();
         FXMLLoader fxmlLoader = new FXMLLoader(CheckoutController.class.getResource("Checkout.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
+        Scene scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
         Start.primStage().setTitle("Checkout");
         Start.primStage().setScene(scene);
         Start.primStage().show();
@@ -115,7 +115,7 @@ public class MainController {
         stage.close();
         Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(OverDueController.class.getResource("overdue.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
+        Scene scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
         Start.primStage().setTitle("Overdue Books");
         Start.primStage().setScene(scene);
         Start.primStage().show();

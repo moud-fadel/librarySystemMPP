@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import ui.Start;
+import ui.Utils;
 import ui.main.MainController;
  import ui.view_checkout.ViewCheckoutController;
 
@@ -208,7 +209,7 @@ public class CheckoutController {
         stage.close();
         Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(ViewCheckoutController.class.getResource("view_checkout.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
+        Scene scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
        Start.primStage().setTitle("View Checkout");
        Start.primStage().setScene(scene);
        Start.primStage().show();
@@ -219,7 +220,7 @@ public class CheckoutController {
         stage.close();
         Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("main_view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
+        Scene scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
         Start.primStage().setTitle("Main");
         Start.primStage().setScene(scene);
         Start.primStage().show();

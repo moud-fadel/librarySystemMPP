@@ -33,7 +33,7 @@ public class ActionsAllowedWindow extends Stage implements LibWindow {
 			
 			try {
 				Parent root = FXMLLoader.load(getClass().getResource("ActionsAllowed.fxml"));
-				Scene scene = new Scene(root, 500, 500);
+				Scene scene = new Scene(root, Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
 				ActionsAllowedWindow.INSTANCE.setScene(scene);
 		        ActionsAllowedWindow.INSTANCE.show();
 		        

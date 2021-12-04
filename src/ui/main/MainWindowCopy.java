@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import ui.AllBooksWindow;
 import ui.AllMembersWindow;
 import ui.LoginWindow;
+import ui.Utils;
 import ui.bookcopy.BookCopyWindow;
 
 import java.io.IOException;
@@ -61,7 +62,7 @@ public class MainWindowCopy extends Application {
 
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindowCopy.class.getResource("main_view.fxml"));
             Scene scene = null;
-            scene = new Scene(fxmlLoader.load(), 800, 800);
+            scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
             stage.setTitle("Main");
             stage.setScene(scene);
 

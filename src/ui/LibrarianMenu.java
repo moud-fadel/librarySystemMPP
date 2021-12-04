@@ -47,7 +47,7 @@ public class LibrarianMenu extends Stage implements LibWindow {
 
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("LibrarianMenu.fxml"));
-			Scene scene = new Scene(root, 500, 500);
+			Scene scene = new Scene(root, Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
 			LibrarianMenu.INSTANCE.setScene(scene);
 			LibrarianMenu.INSTANCE.show();
 

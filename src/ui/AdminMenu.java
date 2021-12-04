@@ -47,7 +47,7 @@ public class AdminMenu extends Stage implements LibWindow {
 
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("AdminMenu.fxml"));
-			Scene scene = new Scene(root, 500, 500);
+			Scene scene = new Scene(root, Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
 			AdminMenu.INSTANCE.setScene(scene);
 			AdminMenu.INSTANCE.show();
 

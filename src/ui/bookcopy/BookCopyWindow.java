@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ui.LibWindow;
+import ui.Utils;
 
 import java.io.IOException;
 
@@ -18,7 +19,7 @@ public class BookCopyWindow extends Stage implements LibWindow {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(BookCopyWindow.class.getResource("add_bookcopy_view.fxml"));
             Scene scene = null;
-            scene = new Scene(fxmlLoader.load(),800 , 600);
+            scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
              setTitle("Add book copy");
              setScene(scene);
             //  show();

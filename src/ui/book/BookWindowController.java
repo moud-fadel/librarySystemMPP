@@ -135,7 +135,7 @@ public class BookWindowController {
     private boolean isISBNexist(String text) {
         DataAccessFacade facade = new DataAccessFacade();
         HashMap<String, Book> bookHashMap = facade.readBooksMap();
-        if (bookHashMap.containsKey(isbn)) return true;
+        if (bookHashMap.containsKey(text)) return true;
         return false;
     }
 

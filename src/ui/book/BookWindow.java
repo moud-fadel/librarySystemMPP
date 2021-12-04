@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import ui.AllBooksWindow;
-import ui.AllMembersWindow;
-import ui.LibWindow;
-import ui.LoginWindow;
+import ui.*;
 
 import java.io.IOException;
 
@@ -22,7 +19,7 @@ public class BookWindow extends Stage implements LibWindow {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(BookWindow.class.getResource("add_book_view.fxml"));
             Scene scene = null;
-            scene = new Scene(fxmlLoader.load(),900 , 600);
+            scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
              setTitle("Add book");
              setScene(scene);
             //  show();

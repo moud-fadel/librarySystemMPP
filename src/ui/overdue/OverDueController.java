@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import ui.Start;
+import ui.Utils;
 import ui.main.MainController;
 
 import java.io.IOException;
@@ -58,7 +59,7 @@ public class OverDueController {
         stage.close();
         Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("main_view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
+        Scene scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
       Start.primStage().setTitle("Overdue");
       Start.primStage().setScene(scene);
       Start.primStage().show();

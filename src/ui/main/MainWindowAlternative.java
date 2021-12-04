@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ui.LibWindow;
+import ui.Utils;
 
 import java.io.IOException;
 
@@ -37,7 +38,7 @@ public class MainWindowAlternative extends Stage implements LibWindow {
 		try {
 
 			Parent root = FXMLLoader.load(getClass().getResource("main_view.fxml"));
-			Scene scene = new Scene(root, 800, 800);
+			Scene scene = new Scene(root, Utils.SCREE_WIDTH, Utils.SCREE_WIDTH);
 			MainWindowAlternative.INSTANCE.setScene(scene);
 			MainWindowAlternative.INSTANCE.show();
 

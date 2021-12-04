@@ -22,6 +22,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.Start;
 import ui.author.AuthorWindow;
+import ui.main.MainWindowAlternative;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -111,8 +113,8 @@ public class BookCopyWindowController {
     public void close() {
 
         BookCopyWindow.INSTANCE.hide();
-        if (!Start.primStage().isShowing()) {
-            Start.primStage().show();
+        if (!MainWindowAlternative.INSTANCE.isShowing()) {
+            MainWindowAlternative.INSTANCE.show();
         }
     }
 

@@ -12,10 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import sun.net.www.protocol.http.AuthenticationInfo;
 import sun.rmi.runtime.Log;
-import ui.AllBooksWindow;
-import ui.AllMembersWindow;
-import ui.LibWindow;
-import ui.LoginWindow;
+import ui.*;
 import ui.book.BookWindow;
 import ui.bookcopy.BookCopyWindow;
 
@@ -69,7 +66,7 @@ public class MainWindow extends Application {
 
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class.getResource("main_view.fxml"));
             Scene scene = null;
-            scene = new Scene(fxmlLoader.load(), 800, 800);
+            scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH, Utils.SCREE_HEIGHT);
             stage.setTitle("Dashboard");
             stage.setScene(scene);
 
