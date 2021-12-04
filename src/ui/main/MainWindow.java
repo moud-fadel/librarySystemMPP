@@ -1,5 +1,6 @@
 package ui.main;
 
+import dataaccess.Auth;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import sun.net.www.protocol.http.AuthenticationInfo;
+import sun.rmi.runtime.Log;
 import ui.AllBooksWindow;
 import ui.AllMembersWindow;
 import ui.LibWindow;
@@ -66,15 +69,26 @@ public class MainWindow extends Application {
 
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class.getResource("main_view.fxml"));
             Scene scene = null;
-            scene = new Scene(fxmlLoader.load(),800 , 800);
+            scene = new Scene(fxmlLoader.load(), 800, 800);
             stage.setTitle("Main");
             stage.setScene(scene);
 
 
+            if (!LoginWindow.INSTANCE.isInitialized()) {
+                LoginWindow.INSTANCE.init();
+            }
+
             stage.show();
+            LoginWindow.INSTANCE.show();
+            LoginWindow.INSTANCE.setResizable(false);
+            LoginWindow.INSTANCE.requestFocus();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public void setCredintials(Auth credintials) {
 
     }
 

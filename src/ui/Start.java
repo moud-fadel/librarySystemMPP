@@ -25,9 +25,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import ui.main.MainWindow;
+import ui.main.MainWindowAlternative;
 
 
 public class Start extends Application {
+	public static final Start INSTANCE = new Start();
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -47,7 +50,8 @@ public class Start extends Application {
 			AllBooksWindow.INSTANCE,
 			ActionsAllowedWindow.INSTANCE,
 			AdminMenu.INSTANCE,
-			AddMemberWindow.INSTANCE
+			AddMemberWindow.INSTANCE,
+			MainWindowAlternative.INSTANCE
 	};
 
 	public static void hideAllWindows() {

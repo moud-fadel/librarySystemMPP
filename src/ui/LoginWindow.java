@@ -17,6 +17,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import ui.bookcopy.BookCopyWindow;
+import ui.main.MainWindow;
+import ui.main.MainWindowAlternative;
 
 public class LoginWindow extends Stage implements LibWindow {
 	public static final LoginWindow INSTANCE = new LoginWindow();
@@ -86,7 +89,10 @@ public class LoginWindow extends Stage implements LibWindow {
                 Auth currentAuthentication = c.login(userTextField.getText().trim(), pwBox.getText().trim());
                 messageBar.setFill(Start.Colors.green);
                 messageBar.setText("Login successful");
-                Start.hideAllWindows();
+               // Start.hideAllWindows();
+
+
+
                 //Start.primStage().show();
                 if(currentAuthentication == Auth.LIBRARIAN) {
                     if(!LibrarianMenu.INSTANCE.isInitialized()) {
@@ -104,11 +110,11 @@ public class LoginWindow extends Stage implements LibWindow {
                     AdminMenu.INSTANCE.show();
 
                 } else {
-                    if(!ActionsAllowedWindow.INSTANCE.isInitialized()) {
-                        ActionsAllowedWindow.INSTANCE.init();
+                    if(!MainWindowAlternative.INSTANCE.isInitialized()) {
+                        MainWindowAlternative.INSTANCE.init();
                     }
-                    ActionsAllowedWindow.INSTANCE.setTitle("Actions Allowed");
-                    ActionsAllowedWindow.INSTANCE.show();
+                    MainWindowAlternative.INSTANCE.setTitle("Main Window Alternative");
+                    MainWindowAlternative.INSTANCE.show();
                 }
             } catch(LoginException ex) {
                 messageBar.setFill(Start.Colors.red);

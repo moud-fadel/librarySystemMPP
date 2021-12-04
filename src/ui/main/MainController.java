@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import ui.AddMemberWindow;
+import ui.Start;
 import ui.book.BookWindow;
 import ui.bookcopy.BookCopyWindow;
 import ui.checkout.CheckoutController;
@@ -29,7 +30,7 @@ public class MainController {
 
     @FXML
     public void addMemberHandler(ActionEvent e) {
-        MainWindow.hideAllWindows();
+        Start.hideAllWindows();
         if (!AddMemberWindow.INSTANCE.isInitialized()) {
             AddMemberWindow.INSTANCE.init();
         }
@@ -38,7 +39,7 @@ public class MainController {
 
     @FXML
     public void addBookHandler(ActionEvent e) {
-        MainWindow.hideAllWindows();
+        Start.hideAllWindows();
         if (!BookWindow.INSTANCE.isInitialized()) {
             BookWindow.INSTANCE.init();
         }
@@ -50,18 +51,18 @@ public class MainController {
      /*   Stage stage = (Stage) buttonAddCopy.getScene().getWindow();
         stage.hide();
          Stage viewCheckoutStage = new Stage();*/
-        MainWindow.hideAllWindows();
+        Start.hideAllWindows();
         FXMLLoader fxmlLoader = new FXMLLoader(CheckoutController.class.getResource("Checkout.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
-        MainWindow.primStage().setTitle("Checkout");
-        MainWindow.primStage().setScene(scene);
-        MainWindow.primStage().show();
+        Start.primStage().setTitle("Checkout");
+        Start.primStage().setScene(scene);
+        Start.primStage().show();
 
     }
 
     @FXML
     public void addAddCopyHandler(ActionEvent e) {
-        MainWindow.hideAllWindows();
+        Start.hideAllWindows();
         if (!BookCopyWindow.INSTANCE.isInitialized()) {
             BookCopyWindow.INSTANCE.init();
         }
@@ -70,13 +71,13 @@ public class MainController {
 
 
     public void overDueBook() throws IOException {
-        Stage stage = (Stage) overDueBookButton.getScene().getWindow();
+       /* Stage stage = (Stage) overDueBookButton.getScene().getWindow();
         stage.close();
-        Stage viewCheckoutStage = new Stage();
+        Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(OverDueController.class.getResource("overdue.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
-        viewCheckoutStage.setTitle("Overdue Books");
-        viewCheckoutStage.setScene(scene);
-        viewCheckoutStage.show();
+        Start.primStage().setTitle("Overdue Books");
+        Start.primStage().setScene(scene);
+        Start.primStage().show();
     }
 }

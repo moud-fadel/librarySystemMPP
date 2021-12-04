@@ -6,15 +6,14 @@ import business.book.BookController;
 import business.book.iBookController;
 import dataaccess.DataAccessFacade;
 import dataaccess.TestData;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
+  import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import ui.Start;
 import ui.Utils;
-import ui.author.AuthorWindow;
-import ui.main.MainWindow;
+import ui.main.MainWindowAlternative;
+
 
 import java.util.*;
 
@@ -91,8 +90,8 @@ public class BookWindowController {
     public void close() {
 
         BookWindow.INSTANCE.hide();
-        if (!MainWindow.primStage().isShowing()) {
-            MainWindow.primStage().show();
+        if (!MainWindowAlternative.INSTANCE.isShowing()) {
+            MainWindowAlternative.INSTANCE.show();
         }
     }
 
