@@ -1,5 +1,6 @@
 package ui.book;
 
+import business.Address;
 import business.Author;
 import business.Book;
 import business.book.BookController;
@@ -45,6 +46,9 @@ public class BookWindowController {
     TableColumn<Author, String> bio;
 
     @FXML
+    TableColumn<Author, Address> address;
+
+    @FXML
     TableView<Book> tableBooksData;
     @FXML
     TableColumn<Book, String> isbn;
@@ -61,6 +65,7 @@ public class BookWindowController {
     Spinner<Integer> spinnerMaxCheckout = new Spinner<>(1, 10, 1);
     SpinnerValueFactory<Integer> valueFactory = //
             new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
+
     public BookWindowController() {
     }
 
@@ -73,6 +78,7 @@ public class BookWindowController {
         firstName.setCellValueFactory(new PropertyValueFactory<Author, String>("firstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<Author, String>("lastName"));
         bio.setCellValueFactory(new PropertyValueFactory<Author, String>("bio"));
+        address.setCellValueFactory(new PropertyValueFactory<Author, Address>("address"));
 
 
         TestData testData = new TestData();
@@ -106,6 +112,7 @@ public class BookWindowController {
             return;
         }
 
+
         if (textFieldBookTitle.getText().trim().equalsIgnoreCase("")) {
             Utils.SHOW_ERROR_ALERT("Please enter book title");
             return;
@@ -114,7 +121,10 @@ public class BookWindowController {
             Utils.SHOW_ERROR_ALERT("Please enter book max checkout count");
             return;
         }
-
+        if (spinnerMaxCheckout.getValue() != 7 || spinnerMaxCheckout.getValue() != 21) {
+            Utils.SHOW_ERROR_ALERT("Max checkout must be between 7 and 21");
+            return;
+        }
         if (tableAuhtors.getItems().size() == 0) {
 
             Utils.SHOW_ERROR_ALERT("Please enter at least one author");
@@ -170,7 +180,6 @@ public class BookWindowController {
     public void addAuthorToList(Author newAuthor) {
         tableAuhtors.getItems().add(newAuthor);
         // textFieldBookTitle.setText(newAuthor.getFirstName());
-
     }
 }
 
