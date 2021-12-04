@@ -56,9 +56,9 @@
         </Label>
         <TableView fx:id="tableBooksData" layoutX="440.0" prefHeight="574.0" prefWidth="382.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
             <columns>
-                <TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
-                <TableColumn fx:id="title" prefWidth="116.79998779296875" text="Title" />
-                <TableColumn fx:id="maxCheckoutLength" prefWidth="112.0001220703125" text="Checkout Max" />
+                <TableColumn fx:id="isbn" prefWidth="110.4000244140625" text="ISBN" />
+                <TableColumn fx:id="title" prefWidth="179.199951171875" text="Title" />
+                <TableColumn fx:id="maxCheckoutLength" prefWidth="86.39990234375" text="Checkout Max" />
             </columns>
         </TableView>
         <Button fx:id="buttonAddAuthor" layoutX="327.0" layoutY="353.0" mnemonicParsing="false" onAction="#addAuthor" prefHeight="30.0" prefWidth="102.0" text="ADD" />
