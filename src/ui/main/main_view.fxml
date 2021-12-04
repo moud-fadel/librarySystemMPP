@@ -14,22 +14,22 @@
                 <Font name="System Bold" size="36.0" />
             </font>
         </Label>
-        <Button id="buttonAddMember" fx:id="buttonAddMember" layoutX="445.0" layoutY="336.0" mnemonicParsing="false" onAction="#addMemberHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #e16700;" text="Add Member" textFill="WHITE">
+        <Button id="buttonAddMember" fx:id="buttonAddMember" layoutX="126.0" layoutY="538.0" mnemonicParsing="false" onAction="#addMemberHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #e16700;" text="Add Member" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
         </Button>
-        <Button id="buttonAddBook" fx:id="buttonAddBook" layoutX="126.0" layoutY="142.0" mnemonicParsing="false" onAction="#addBookHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #0060aa;" text="Add Book" textFill="#fafafa">
+        <Button id="buttonAddBook" fx:id="buttonAddBook" layoutX="126.0" layoutY="347.0" mnemonicParsing="false" onAction="#addBookHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #0060aa;" text="Add Book" textFill="#fafafa">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
         </Button>
-        <Button id="buttonCheckout" fx:id="buttonCheckout" layoutX="445.0" layoutY="142.0" mnemonicParsing="false" onAction="#addCheckoutHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #2ec7eb;" text="Checkout" textFill="WHITE">
+        <Button id="buttonCheckout" fx:id="buttonCheckout" layoutX="284.0" layoutY="139.0" mnemonicParsing="false" onAction="#addCheckoutHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #2ec7eb;" text="Checkout" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
         </Button>
-        <Button id="buttonAddCopy" fx:id="buttonAddCopy" layoutX="126.0" layoutY="336.0" mnemonicParsing="false" onAction="#addAddCopyHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #face00;" text="Add copy" textFill="WHITE">
+        <Button id="buttonAddCopy" fx:id="buttonAddCopy" layoutX="445.0" layoutY="347.0" mnemonicParsing="false" onAction="#addAddCopyHandler" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #face00;" text="Add copy" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
@@ -39,7 +39,7 @@
                 <Image url="@libicon.png" />
             </image>
         </ImageView>
-        <Button id="buttonAddCopy" fx:id="overDueBookButton" layoutX="126.0" layoutY="536.0" mnemonicParsing="false" onAction="#overDueBook" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #fa36f6;" text="Overdue Book" textFill="WHITE">
+        <Button id="buttonAddCopy" fx:id="overDueBookButton" layoutX="445.0" layoutY="538.0" mnemonicParsing="false" onAction="#overDueBook" prefHeight="158.0" prefWidth="256.0" style="-fx-background-color: #fa36f6;" text="Overdue Book" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
