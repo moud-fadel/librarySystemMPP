@@ -2,6 +2,7 @@ package ui.author;
 
 import business.Author;
 import dataaccess.TestData;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -10,6 +11,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.cell.PropertyValueFactory;
+import ui.book.BookWindow;
 import ui.book.BookWindowController;
 
 public class AuthorWindowController implements Initializable {
@@ -40,7 +42,7 @@ public class AuthorWindowController implements Initializable {
 
     private void addAuthorToList(Author newAuthor) {
         AuthorWindow.INSTANCE.hide();
-        BookWindowController bookController = new BookWindowController();
-        bookController.addAuthorToList(newAuthor);
-     }
+        BookWindow.INSTANCE.addAuthor(newAuthor);
+      }
+
 }
