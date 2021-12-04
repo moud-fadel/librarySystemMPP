@@ -15,7 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import ui.checkout.CheckoutController;
-import ui.main.MainController;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -47,6 +46,9 @@ public class ViewCheckoutController {
     public TableColumn<Checkout, LocalDate> dueDateColumn = new TableColumn<>();
     @FXML
     public Button backButton;
+    @FXML
+    public TableColumn<Checkout, String> copyNoColumn;
+
     List<Checkout> checkoutList;
     public DataAccessFacade dataAccess = new DataAccessFacade();
 
@@ -59,6 +61,7 @@ public class ViewCheckoutController {
         String memberId = this.memberIdTextBox.getText();
         memberNameColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getMember().getFirstName()));
         bookTitleColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getBookCopy().getBook().getTitle()));
+        copyNoColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(String.valueOf(cellData.getValue().getBookCopy().getCopyNum())));
         checkOutDateColumn.setCellValueFactory(new PropertyValueFactory<>("checkoutDate"));
         dueDateColumn.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
         checkoutTable.setItems(getCheckOutOfTheMember(memberId));
@@ -78,16 +81,18 @@ public class ViewCheckoutController {
     public void print() {
         if (this.checkoutList.size() != 0) {
             System.out.println("------ Checkouts of " + checkoutList.get(0).getMember().getFirstName() + "-----");
-            for (int i = 0; i <checkoutList.size(); i++) {
-                System.out.println(i+1);
+            for (int i = 0; i < checkoutList.size(); i++) {
+                System.out.println(i + 1);
                 System.out.println("Book : " + checkoutList.get(i).getBookCopy().getBook().getTitle());
                 System.out.println("Copy no : " + checkoutList.get(i).getBookCopy().getCopyNum());
                 System.out.println("Checkout Date : " + checkoutList.get(i).getCheckoutDate());
                 System.out.println("Due date : " + checkoutList.get(i).getDueDate());
                 System.out.println("-------------------------------");
             }
+            System.out.println("---------- Thank You ----------");
         }
     }
+
     public void back() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.close();

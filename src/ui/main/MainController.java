@@ -9,10 +9,13 @@ import javafx.stage.Stage;
 import ui.book.BookWindow;
 import ui.bookcopy.BookCopyWindow;
 import ui.checkout.CheckoutController;
+import ui.overdue.OverDueController;
 
 import java.io.IOException;
 
 public class MainController {
+    @FXML
+    public Button overDueBookButton;
     @FXML
     Button buttonAddMember;
     @FXML
@@ -60,4 +63,14 @@ public class MainController {
     }
 
 
+    public void overDueBook() throws IOException {
+        Stage stage = (Stage) overDueBookButton.getScene().getWindow();
+        stage.close();
+        Stage viewCheckoutStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(OverDueController.class.getResource("overdue.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
+        viewCheckoutStage.setTitle("Overdue Books");
+        viewCheckoutStage.setScene(scene);
+        viewCheckoutStage.show();
+    }
 }

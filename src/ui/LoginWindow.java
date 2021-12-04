@@ -1,6 +1,7 @@
 package ui;
 
 import business.*;
+import dataaccess.Auth;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -74,31 +75,49 @@ public class LoginWindow extends Stage implements LibWindow {
         messageBox.getChildren().add(messageBar);;
         grid.add(messageBox, 1, 6);
 
-        loginBtn.setOnAction(new EventHandler<ActionEvent>() {
-        	@Override
-        	public void handle(ActionEvent e) {
-        		try {
-        			ControllerInterface c = new SystemController();
-        		 	c.login(userTextField.getText().trim(), pwBox.getText().trim());
-
-                    messageBar.setFill(Start.Colors.green);
-             	    messageBar.setText("Login successful");
-        		} catch(Exception ex) {
-        			messageBar.setFill(Start.Colors.red);
-        			messageBar.setText("Error! " + ex.getMessage());
-        		}
-
-        	}
-        });
-
         Button backBtn = new Button("<= Back to Main");
-        backBtn.setOnAction(new EventHandler<ActionEvent>() {
-        	@Override
-        	public void handle(ActionEvent e) {
-        		Start.hideAllWindows();
-        		Start.primStage().show();
-        	}
+        backBtn.setOnAction(e -> {
+            Start.hideAllWindows();
+            Start.primStage().show();
         });
+        loginBtn.setOnAction(e -> {
+            try {
+                ControllerInterface c = new SystemController();
+                Auth currentAuthentication = c.login(userTextField.getText().trim(), pwBox.getText().trim());
+                messageBar.setFill(Start.Colors.green);
+                messageBar.setText("Login successful");
+                Start.hideAllWindows();
+                //Start.primStage().show();
+                if(currentAuthentication == Auth.LIBRARIAN) {
+                    if(!LibrarianMenu.INSTANCE.isInitialized()) {
+                        LibrarianMenu.INSTANCE.init();
+                    }
+                    LibrarianMenu.INSTANCE.setTitle("Welcome Librarian");
+                    LibrarianMenu.INSTANCE.show();
+
+
+                } else if(currentAuthentication == Auth.ADMIN) {
+                    if(!AdminMenu.INSTANCE.isInitialized()) {
+                        AdminMenu.INSTANCE.init();
+                    }
+                    AdminMenu.INSTANCE.setTitle("Welcome Admin");
+                    AdminMenu.INSTANCE.show();
+
+                } else {
+                    if(!ActionsAllowedWindow.INSTANCE.isInitialized()) {
+                        ActionsAllowedWindow.INSTANCE.init();
+                    }
+                    ActionsAllowedWindow.INSTANCE.setTitle("Actions Allowed");
+                    ActionsAllowedWindow.INSTANCE.show();
+                }
+            } catch(LoginException ex) {
+                messageBar.setFill(Start.Colors.red);
+                messageBar.setText("Error! " + ex.getMessage());
+            }
+
+        });
+
+
         HBox hBack = new HBox(10);
         hBack.setAlignment(Pos.BOTTOM_LEFT);
         hBack.getChildren().add(backBtn);
@@ -108,6 +127,5 @@ public class LoginWindow extends Stage implements LibWindow {
         setScene(scene);
 
     }
-
 
 }
