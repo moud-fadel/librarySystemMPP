@@ -19,7 +19,7 @@ public class BookCopyWindow extends Stage implements LibWindow {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(BookCopyWindow.class.getResource("add_bookcopy_view.fxml"));
             Scene scene = null;
-            scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
+            scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_HEIGHT);
              setTitle("Add book copy");
              setScene(scene);
             //  show();
