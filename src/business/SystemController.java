@@ -11,8 +11,8 @@ import dataaccess.User;
 
 public class SystemController implements ControllerInterface {
 	public static Auth currentAuth = null;
-	
-	public void login(String id, String password) throws LoginException {
+
+	public Auth login(String id, String password) throws LoginException {
 		DataAccess da = new DataAccessFacade();
 		HashMap<String, User> map = da.readUserMap();
 		if(!map.containsKey(id)) {
@@ -23,7 +23,17 @@ public class SystemController implements ControllerInterface {
 			throw new LoginException("Password incorrect");
 		}
 		currentAuth = map.get(id).getAuthorization();
-		
+
+		return currentAuth;
+//		if(currentAuth == Auth.LIBRARIAN) {
+//
+//		} else if(currentAuth == Auth.ADMIN) {
+//
+//		}
+//		else {
+//
+//		}
+
 	}
 	@Override
 	public List<String> allMemberIds() {

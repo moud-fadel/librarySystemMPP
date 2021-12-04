@@ -1,7 +1,7 @@
 .root {
     -fx-font-size: 14px;
     -fx-font-family: sans-serif;
-    -fx-background-color: #888bf3;
+    -fx-background-color: #bdc2fd;
 }
 .background {
     -fx-background-color: #000000;
@@ -29,11 +29,11 @@
 }
 
 .table-view{
-    -fx-background-color: transparent;
+    -fx-background-color: linear-gradient(#101010 0%, #424141 100%);
 }
 
 .table-view:focused{
-    -fx-background-color: transparent;
+    -fx-background-color: linear-gradient(#101010 0%, #424141 100%);
 }
 
 .table-view .column-header-background{
@@ -124,7 +124,7 @@
 }
 
 .button:hover {
-    -fx-background-color: #3a3a3a;
+    -fx-background-color: linear-gradient(#0e0e0e, #414040);
 }
 
 .button:pressed, .button:default:hover:pressed {

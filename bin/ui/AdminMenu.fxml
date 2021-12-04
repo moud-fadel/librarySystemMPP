@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AdminWindowController">
+   <children>
+      <Button fx:id="addMemberButton" mnemonicParsing="false" onAction="#addMember" prefHeight="186.0" prefWidth="600.0" text="Add Member">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Button>
+      <Button fx:id="editMemberButton" mnemonicParsing="false" onAction="#editMember" prefHeight="137.0" prefWidth="600.0" text="Edit Member">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Button>
+      <Button fx:id="addBookButton" mnemonicParsing="false" onAction="#addBook" prefHeight="112.0" prefWidth="600.0" text="Add Book">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Button>
+   </children>
+</VBox>
