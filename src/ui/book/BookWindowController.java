@@ -4,6 +4,7 @@ import business.Author;
 import business.Book;
 import business.book.BookController;
 import business.book.iBookController;
+import dataaccess.DataAccessFacade;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -14,7 +15,9 @@ import ui.Utils;
 import ui.author.AuthorWindow;
 import ui.main.MainWindow;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Optional;
 
 public class BookWindowController {
     @FXML
@@ -88,6 +91,11 @@ public class BookWindowController {
             Utils.SHOW_ERROR_ALERT("Please enter at least one author");
             return;
         }
+
+        if (isISBNexist(textFieldISBN.getText())) {
+            Utils.SHOW_ERROR_ALERT("Book is already exist");
+            return;
+        }
        /* ArrayList<Author> authorArrayList = new ArrayList<>();
         TestData d = new TestData();
         authorArrayList.add(d.allAuthors.get(0));*/
@@ -97,6 +105,13 @@ public class BookWindowController {
         iBookController iBookController = new BookController();
         iBookController.addNewBook(book);
         tableBooksData.getItems().add(book);
+    }
+
+    private boolean isISBNexist(String text) {
+        DataAccessFacade facade = new DataAccessFacade();
+        HashMap<String, Book> bookHashMap = facade.readBooksMap();
+        if (bookHashMap.containsKey(isbn)) return true;
+        return false;
     }
 
     @FXML
