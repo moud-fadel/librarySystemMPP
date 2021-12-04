@@ -134,6 +134,10 @@ public class BookWindowController {
         iBookController iBookController = new BookController();
         iBookController.addNewBook(book);
         tableBooksData.getItems().add(book);
+        tableAuhtors.getItems().clear();
+        textFieldISBN.setText("");
+        textFieldBookTitle.setText("");
+        spinnerMaxCheckout.getValueFactory().setValue(1);
     }
 
     private boolean isISBNexist(String text) {
