@@ -33,11 +33,12 @@ public class DataAccessFacade implements DataAccess {
         saveToStorage(StorageType.MEMBERS, mems);
     }
     @Override
-    public void saveNewBook(Book book) {
+    public boolean saveNewBook(Book book) {
         HashMap<String, Book> bookHashMap = readBooksMap();
         String memberId = book.getIsbn();
         bookHashMap.put(memberId, book);
         saveToStorage(StorageType.BOOKS, bookHashMap);
+        return true;
     }
 
     @Override

@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public class BookController implements iBookController {
 
-    public void addNewBook(Book book) {
+    public boolean addNewBook(Book book) {
         DataAccessFacade dataAccessFacade = new DataAccessFacade();
-        dataAccessFacade.saveNewBook(book);
+       return dataAccessFacade.saveNewBook(book);
 
     }
 

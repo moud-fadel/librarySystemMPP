@@ -6,6 +6,9 @@ import business.book.BookController;
 import business.book.iBookController;
 import dataaccess.DataAccessFacade;
 import dataaccess.TestData;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -13,10 +16,7 @@ import ui.Utils;
 import ui.author.AuthorWindow;
 import ui.main.MainWindow;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
 
 public class BookWindowController {
 
@@ -55,7 +55,8 @@ public class BookWindowController {
     TableColumn<Book, Integer> maxCheckoutLength;
     @FXML
     Button buttonClose;
-
+    @FXML
+    ComboBox<Author> comboAuthors;
 
     public BookWindowController() {
     }
@@ -65,6 +66,23 @@ public class BookWindowController {
         isbn.setCellValueFactory(new PropertyValueFactory<Book, String>("isbn"));
         title.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
         maxCheckoutLength.setCellValueFactory(new PropertyValueFactory<Book, Integer>("maxCheckoutLength"));
+
+        firstName.setCellValueFactory(new PropertyValueFactory<Author, String>("firstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<Author, String>("lastName"));
+        bio.setCellValueFactory(new PropertyValueFactory<Author, String>("bio"));
+
+
+        TestData testData = new TestData();
+        comboAuthors.setItems(FXCollections.observableArrayList(testData.allAuthors));
+
+      /*  comboAuthors.valueProperty().addListener(new ChangeListener<Author>() {
+            @Override
+            public void changed(ObservableValue<? extends Author> observable, Author oldValue, Author newValue) {
+                tableAuhtors.getItems().add(newValue);
+             //   addAuthorToList(newValue);
+            }
+        });*/
+
 
     }
 
@@ -104,12 +122,12 @@ public class BookWindowController {
             Utils.SHOW_ERROR_ALERT("Book is already exist");
             return;
         }
-       /* ArrayList<Author> authorArrayList = new ArrayList<>();
+        ArrayList<Author> authorArrayList = new ArrayList<>();
         TestData d = new TestData();
-        authorArrayList.add(d.allAuthors.get(0));*/
+        authorArrayList.addAll(tableAuhtors.getItems());
         Book book = new Book(textFieldISBN.getText().toString()
                 , textFieldBookTitle.getText().toLowerCase(Locale.ROOT),
-                Integer.parseInt(textMaxCheckoutNum.getText().toString()), tableAuhtors.getItems());
+                Integer.parseInt(textMaxCheckoutNum.getText().toString()),authorArrayList);
         iBookController iBookController = new BookController();
         iBookController.addNewBook(book);
         tableBooksData.getItems().add(book);
@@ -125,13 +143,14 @@ public class BookWindowController {
     @FXML
     public void addAuthor() {
         // MainWindow.hideAllWindows();
-        if (!AuthorWindow.INSTANCE.isInitialized()) {
+     /*   if (!AuthorWindow.INSTANCE.isInitialized()) {
             AuthorWindow.INSTANCE.init();
         }
-        AuthorWindow.INSTANCE.show();
+        AuthorWindow.INSTANCE.show();*/
+        tableAuhtors.getItems().add(comboAuthors.getValue());
+
     }
 
-    @FXML
     public void addAuthorToList(Author newAuthor) {
         tableAuhtors.getItems().add(newAuthor);
         // textFieldBookTitle.setText(newAuthor.getFirstName());

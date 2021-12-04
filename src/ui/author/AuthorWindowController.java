@@ -25,6 +25,7 @@ public class AuthorWindowController implements Initializable {
     TableColumn<Author, String> bio;
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         TestData s = new TestData();
@@ -36,7 +37,7 @@ public class AuthorWindowController implements Initializable {
             if (newSelection != null) {
                 tableAuhtors.getSelectionModel().clearSelection();
             }
-            addAuthorToList(newSelection);
+           // addAuthorToList(newSelection);
         });
     }
 

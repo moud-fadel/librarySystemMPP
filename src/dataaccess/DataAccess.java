@@ -24,5 +24,5 @@ public interface DataAccess {
 
     void saveCheckOut(Checkout checkout);
 
-    public void saveNewBook(Book book);
+    public boolean saveNewBook(Book book);
 }

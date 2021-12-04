@@ -24,6 +24,7 @@ public class MainWindow extends Application {
     private boolean isInitialized = false;
 
     private static Stage primStage = null;
+
     public static Stage primStage() {
         return primStage;
     }
@@ -44,7 +45,7 @@ public class MainWindow extends Application {
 
     public static void hideAllWindows() {
         primStage.hide();
-        for(Stage st: allWindows) {
+        for (Stage st : allWindows) {
             st.hide();
         }
     }
@@ -52,6 +53,7 @@ public class MainWindow extends Application {
     public boolean isInitialized() {
         return isInitialized;
     }
+
     public void isInitialized(boolean val) {
         isInitialized = val;
     }
@@ -64,9 +66,9 @@ public class MainWindow extends Application {
 
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class.getResource("main_view.fxml"));
             Scene scene = null;
-            scene = new Scene(fxmlLoader.load(),800 , 600);
+            scene = new Scene(fxmlLoader.load(), 800, 600);
             stage.setTitle("Main");
-             stage.setScene(scene);
+            stage.setScene(scene);
 
 
             stage.show();
@@ -75,6 +77,7 @@ public class MainWindow extends Application {
         }
 
     }
+
     public static void main(String[] args) {
 
         launch(args);
@@ -86,8 +89,6 @@ public class MainWindow extends Application {
         super.init();
 
     }
-
-
 
 
 }
