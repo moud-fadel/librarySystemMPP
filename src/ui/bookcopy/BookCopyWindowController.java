@@ -20,9 +20,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import ui.Start;
 import ui.author.AuthorWindow;
-import ui.main.MainWindow;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -112,8 +111,8 @@ public class BookCopyWindowController {
     public void close() {
 
         BookCopyWindow.INSTANCE.hide();
-        if (!MainWindow.primStage().isShowing()) {
-            MainWindow.primStage().show();
+        if (!Start.primStage().isShowing()) {
+            Start.primStage().show();
         }
     }
 

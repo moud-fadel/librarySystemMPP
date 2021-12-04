@@ -14,8 +14,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import ui.Start;
 import ui.checkout.CheckoutController;
-import ui.main.MainWindow;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -100,8 +100,8 @@ public class ViewCheckoutController {
         Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(CheckoutController.class.getResource("Checkout.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
-        MainWindow.primStage().setTitle("Main");
-        MainWindow.primStage().setScene(scene);
-        MainWindow.primStage().show();
+       Start.primStage().setTitle("Main");
+       Start.primStage().setScene(scene);
+       Start.primStage().show();
     }
 }

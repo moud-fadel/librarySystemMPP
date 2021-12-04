@@ -1,6 +1,7 @@
 package ui.main;
 
 
+import dataaccess.Auth;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,6 +17,7 @@ public class MainWindowAlternative extends Stage implements LibWindow {
 
 	private boolean isInitialized = false;
 
+ public  Auth credintials;
 	public boolean isInitialized() {
 		return isInitialized;
 	}
@@ -33,8 +35,9 @@ public class MainWindowAlternative extends Stage implements LibWindow {
 	public void init() {
 
 		try {
+
 			Parent root = FXMLLoader.load(getClass().getResource("main_view.fxml"));
-			Scene scene = new Scene(root, 500, 500);
+			Scene scene = new Scene(root, 800, 800);
 			MainWindowAlternative.INSTANCE.setScene(scene);
 			MainWindowAlternative.INSTANCE.show();
 

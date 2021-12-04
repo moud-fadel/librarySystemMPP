@@ -1,5 +1,6 @@
 package ui.main;
 
+import dataaccess.Auth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import ui.AddMemberWindow;
+import ui.AdminMenu;
+import ui.LibrarianMenu;
 import ui.Start;
 import ui.book.BookWindow;
 import ui.bookcopy.BookCopyWindow;
@@ -27,6 +30,34 @@ public class MainController {
     @FXML
     Button buttonAddCopy;
 
+    @FXML
+    void initialize() {
+
+        if (MainWindowAlternative.INSTANCE.credintials == Auth.LIBRARIAN) {
+            buttonAddBook.setVisible(false);
+            buttonAddMember.setVisible(false);
+            buttonAddCopy.setVisible(false);
+            overDueBookButton.setVisible(false);
+            buttonCheckout.setVisible(false);
+            buttonCheckout.setVisible(true);
+
+
+        } else if (MainWindowAlternative.INSTANCE.credintials == Auth.ADMIN) {
+            buttonAddBook.setVisible(true);
+            buttonAddMember.setVisible(true);
+            buttonAddCopy.setVisible(true);
+            overDueBookButton.setVisible(false);
+            buttonCheckout.setVisible(false);
+
+        } else {
+            buttonAddBook.setVisible(true);
+            buttonAddMember.setVisible(true);
+            buttonAddCopy.setVisible(true);
+            overDueBookButton.setVisible(true);
+            buttonCheckout.setVisible(true);
+        }
+
+    }
 
     @FXML
     public void addMemberHandler(ActionEvent e) {
@@ -80,4 +111,6 @@ public class MainController {
         Start.primStage().setScene(scene);
         Start.primStage().show();
     }
+
+
 }

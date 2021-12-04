@@ -17,8 +17,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import ui.bookcopy.BookCopyWindow;
-import ui.main.MainWindow;
 import ui.main.MainWindowAlternative;
 
 public class LoginWindow extends Stage implements LibWindow {
@@ -94,7 +92,7 @@ public class LoginWindow extends Stage implements LibWindow {
 
 
                 //Start.primStage().show();
-                if(currentAuthentication == Auth.LIBRARIAN) {
+                /*if(currentAuthentication == Auth.LIBRARIAN) {
                     if(!LibrarianMenu.INSTANCE.isInitialized()) {
                         LibrarianMenu.INSTANCE.init();
                     }
@@ -114,8 +112,16 @@ public class LoginWindow extends Stage implements LibWindow {
                         MainWindowAlternative.INSTANCE.init();
                     }
                     MainWindowAlternative.INSTANCE.setTitle("Main Window Alternative");
-                    MainWindowAlternative.INSTANCE.show();
+                     MainWindowAlternative.INSTANCE.show();
+                }*/
+
+                if(!MainWindowAlternative.INSTANCE.isInitialized()) {
+                    MainWindowAlternative.INSTANCE.credintials = currentAuthentication;
+                    MainWindowAlternative.INSTANCE.init();
                 }
+                MainWindowAlternative.INSTANCE.credintials = currentAuthentication;
+                MainWindowAlternative.INSTANCE.setTitle("Main Window Alternative");
+                MainWindowAlternative.INSTANCE.show();
             } catch(LoginException ex) {
                 messageBar.setFill(Start.Colors.red);
                 messageBar.setText("Error! " + ex.getMessage());

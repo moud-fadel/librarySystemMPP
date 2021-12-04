@@ -10,7 +10,6 @@ import ui.AllBooksWindow;
 import ui.AllMembersWindow;
 import ui.LibWindow;
 import ui.LoginWindow;
-import ui.main.MainWindow;
 
 import java.io.IOException;
 

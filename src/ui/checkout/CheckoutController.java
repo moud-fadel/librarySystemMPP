@@ -11,9 +11,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import ui.Start;
 import ui.main.MainController;
-import ui.main.MainWindow;
-import ui.view_checkout.ViewCheckoutController;
+ import ui.view_checkout.ViewCheckoutController;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -209,9 +209,9 @@ public class CheckoutController {
         Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(ViewCheckoutController.class.getResource("view_checkout.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
-       MainWindow.primStage().setTitle("View Checkout");
-       MainWindow.primStage().setScene(scene);
-       MainWindow.primStage().show();
+       Start.primStage().setTitle("View Checkout");
+       Start.primStage().setScene(scene);
+       Start.primStage().show();
     }
 
     public void back() throws IOException {
@@ -220,9 +220,9 @@ public class CheckoutController {
         Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("main_view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
-        MainWindow.primStage().setTitle("Main");
-        MainWindow.primStage().setScene(scene);
-        MainWindow.primStage().show();
+        Start.primStage().setTitle("Main");
+        Start.primStage().setScene(scene);
+        Start.primStage().show();
     }
 
     public void remove() {
