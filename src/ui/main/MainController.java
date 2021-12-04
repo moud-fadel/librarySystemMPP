@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import ui.AddMemberWindow;
 import ui.book.BookWindow;
 import ui.bookcopy.BookCopyWindow;
 import ui.checkout.CheckoutController;
@@ -28,7 +29,11 @@ public class MainController {
 
     @FXML
     public void addMemberHandler(ActionEvent e) {
-
+        MainWindow.hideAllWindows();
+        if (!AddMemberWindow.INSTANCE.isInitialized()) {
+            AddMemberWindow.INSTANCE.init();
+        }
+        AddMemberWindow.INSTANCE.show();
     }
 
     @FXML
@@ -42,14 +47,15 @@ public class MainController {
 
     @FXML
     public void addCheckoutHandler(ActionEvent e) throws IOException {
-        Stage stage = (Stage) buttonAddCopy.getScene().getWindow();
-        stage.close();
-        Stage viewCheckoutStage = new Stage();
+     /*   Stage stage = (Stage) buttonAddCopy.getScene().getWindow();
+        stage.hide();
+         Stage viewCheckoutStage = new Stage();*/
+        MainWindow.hideAllWindows();
         FXMLLoader fxmlLoader = new FXMLLoader(CheckoutController.class.getResource("Checkout.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
-        viewCheckoutStage.setTitle("Checkout");
-        viewCheckoutStage.setScene(scene);
-        viewCheckoutStage.show();
+        MainWindow.primStage().setTitle("Checkout");
+        MainWindow.primStage().setScene(scene);
+        MainWindow.primStage().show();
 
     }
 

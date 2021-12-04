@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import ui.checkout.CheckoutController;
+import ui.main.MainWindow;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -94,13 +95,13 @@ public class ViewCheckoutController {
     }
 
     public void back() throws IOException {
-        Stage stage = (Stage) backButton.getScene().getWindow();
+       /* Stage stage = (Stage) backButton.getScene().getWindow();
         stage.close();
-        Stage viewCheckoutStage = new Stage();
+        Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(CheckoutController.class.getResource("Checkout.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
-        viewCheckoutStage.setTitle("Main");
-        viewCheckoutStage.setScene(scene);
-        viewCheckoutStage.show();
+        MainWindow.primStage().setTitle("Main");
+        MainWindow.primStage().setScene(scene);
+        MainWindow.primStage().show();
     }
 }
