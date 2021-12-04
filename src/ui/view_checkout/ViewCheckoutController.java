@@ -89,6 +89,7 @@ public class ViewCheckoutController {
                 System.out.println("Due date : " + checkoutList.get(i).getDueDate());
                 System.out.println("-------------------------------");
             }
+            System.out.println("---------- Thank You ----------");
         }
     }
 

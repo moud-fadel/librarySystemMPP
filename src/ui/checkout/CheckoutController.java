@@ -63,25 +63,22 @@ public class CheckoutController {
 
     public void addBook() {
         if (validationError()) return;
-        Optional<BookCopy> bookCopy = getAvailableBookCopyWithIsbn(isbnTextBox.getText());
-        if (!bookCopy.isPresent()) {
-            showErrorAlert("Book Not found or all copies are unavailable");
-            return;
-        }
-
         Optional<LibraryMember> memberWithId = getMemberWithId(memberIdTextBox.getText());
         if (!memberWithId.isPresent()) {
             showErrorAlert("Member with given id not found.");
             return;
         }
-
+        Optional<BookCopy> bookCopy = getAvailableBookCopyWithIsbn(isbnTextBox.getText());
+        if (!bookCopy.isPresent()) {
+            showErrorAlert("Book Not found or all copies are unavailable");
+            return;
+        }
         this.libraryMember = memberWithId.get();
         isbnTextBox.setText("");
         copyNumberColumn.setCellValueFactory(new PropertyValueFactory("copyNum"));
         isbnColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getBook().getIsbn()));
         titleColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getBook().getTitle()));
         selectedBookTable.setItems(addBookToSelectedBookTable(bookCopy.get()));
-
 
         showInfoAlert("Book Added Success");
         memberIdTextBox.setEditable(false);
@@ -168,12 +165,10 @@ public class CheckoutController {
         return checkout;
     }
 
-
     private ObservableList<BookCopy> addBookToSelectedBookTable(BookCopy bookCopy) {
         this.bookCopyList.add(bookCopy);
         return FXCollections.observableArrayList(this.bookCopyList);
     }
-
 
     private void showErrorAlert(String errorMessage) {
         errorAlert.setHeaderText(errorMessage);
