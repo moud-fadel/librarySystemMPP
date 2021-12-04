@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import ui.book.BookWindow;
+import ui.bookcopy.BookCopyWindow;
 import ui.checkout.CheckoutController;
 
 import java.io.IOException;
@@ -51,7 +52,11 @@ public class MainController {
 
     @FXML
     public void addAddCopyHandler(ActionEvent e) {
-
+        MainWindow.hideAllWindows();
+        if (!BookCopyWindow.INSTANCE.isInitialized()) {
+            BookCopyWindow.INSTANCE.init();
+        }
+        BookCopyWindow.INSTANCE.show();
     }
 
 

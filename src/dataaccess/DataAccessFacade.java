@@ -1,19 +1,22 @@
 package dataaccess;
 
-import business.Book;
-import business.Checkout;
-import business.LibraryMember;
+import business.*;
 
 import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
 
 public class DataAccessFacade implements DataAccess {
+
+    public void updateBookCopies(Book newCopy) {
+
+    }
 
     enum StorageType {
         BOOKS, MEMBERS, USERS, CHECKOUTS;

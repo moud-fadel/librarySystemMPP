@@ -2,12 +2,13 @@ package ui.book;
 
 import business.Author;
 import business.Book;
- import business.book.BookController;
+import business.book.BookController;
 import business.book.iBookController;
- import dataaccess.TestData;
+import dataaccess.TestData;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import ui.Utils;
 import ui.author.AuthorWindow;
 import ui.main.MainWindow;
 
@@ -33,7 +34,7 @@ public class BookWindowController {
 
 
     @FXML
-    TableView<Author> tableAuhtors;
+    TableView<Author> tableAuhtors = new TableView<>();
     @FXML
     TableColumn<Author, String> firstName;
     @FXML
@@ -76,12 +77,34 @@ public class BookWindowController {
 
     @FXML
     public void addNewBook() {
-        ArrayList<Author> authorArrayList = new ArrayList<>();
+        if(textFieldISBN.getText().trim().equalsIgnoreCase(""))
+        {
+            Utils.SHOW_ERROR_ALERT("Please enter book ISBN");
+            return;
+        }
+
+        if(textFieldBookTitle.getText().trim().equalsIgnoreCase(""))
+        {
+            Utils.SHOW_ERROR_ALERT("Please enter book title");
+            return;
+        }
+        if(textMaxCheckoutNum.getText().trim().equalsIgnoreCase(""))
+        {
+            Utils.SHOW_ERROR_ALERT("Please enter book max checkout count");
+            return;
+        }
+
+        if(tableAuhtors.getItems().size()==0){
+
+            Utils.SHOW_ERROR_ALERT("Please enter at least one author");
+            return;
+        }
+       /* ArrayList<Author> authorArrayList = new ArrayList<>();
         TestData d = new TestData();
-        authorArrayList.add(d.allAuthors.get(0));
+        authorArrayList.add(d.allAuthors.get(0));*/
         Book book = new Book(textFieldISBN.getText().toString()
                 , textFieldBookTitle.getText().toLowerCase(Locale.ROOT),
-                Integer.parseInt(textMaxCheckoutNum.getText().toString()), authorArrayList);
+                Integer.parseInt(textMaxCheckoutNum.getText().toString()), tableAuhtors.getItems());
         iBookController iBookController = new BookController();
         iBookController.addNewBook(book);
         tableBooksData.getItems().add(book);
@@ -99,6 +122,7 @@ public class BookWindowController {
     @FXML
     public void addAuthorToList(Author newAuthor) {
         tableAuhtors.getItems().add(newAuthor);
+        // textFieldBookTitle.setText(newAuthor.getFirstName());
 
     }
 }

@@ -10,6 +10,7 @@ final public class BookCopy implements Serializable {
 	private static final long serialVersionUID = -63976228084869815L;
 	private Book book;
 	private int copyNum;
+
 	private boolean isAvailable;
 	BookCopy(Book book, int copyNum, boolean isAvailable) {
 		this.book = book;
@@ -46,6 +47,14 @@ final public class BookCopy implements Serializable {
 				", copyNum=" + copyNum +
 				", isAvailable=" + isAvailable +
 				'}';
+	}
+
+	public String getBookTitle(){
+		return book.getTitle();
+	}
+
+	public String getBookISBN(){
+		return book.getIsbn();
 	}
 
 	@Override

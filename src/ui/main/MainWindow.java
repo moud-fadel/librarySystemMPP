@@ -14,6 +14,7 @@ import ui.AllMembersWindow;
 import ui.LibWindow;
 import ui.LoginWindow;
 import ui.book.BookWindow;
+import ui.bookcopy.BookCopyWindow;
 
 import java.io.IOException;
 
@@ -35,7 +36,9 @@ public class MainWindow extends Application {
     private static Stage[] allWindows = {
             LoginWindow.INSTANCE,
             AllMembersWindow.INSTANCE,
-            AllBooksWindow.INSTANCE
+            AllBooksWindow.INSTANCE,
+            BookCopyWindow.INSTANCE
+
     };
 
 
