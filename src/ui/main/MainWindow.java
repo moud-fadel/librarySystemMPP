@@ -70,7 +70,7 @@ public class MainWindow extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class.getResource("main_view.fxml"));
             Scene scene = null;
             scene = new Scene(fxmlLoader.load(), 800, 800);
-            stage.setTitle("Main");
+            stage.setTitle("Dashboard");
             stage.setScene(scene);
 
 

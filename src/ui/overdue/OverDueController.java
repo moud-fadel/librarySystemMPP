@@ -59,7 +59,7 @@ public class OverDueController {
         Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("main_view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
-      Start.primStage().setTitle("Main");
+      Start.primStage().setTitle("Overdue");
       Start.primStage().setScene(scene);
       Start.primStage().show();
     }

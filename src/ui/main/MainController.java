@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import ui.AddMemberWindow;
-import ui.AdminMenu;
-import ui.LibrarianMenu;
-import ui.Start;
+import ui.*;
 import ui.book.BookWindow;
 import ui.bookcopy.BookCopyWindow;
 import ui.checkout.CheckoutController;
@@ -29,6 +26,9 @@ public class MainController {
     Button buttonCheckout;
     @FXML
     Button buttonAddCopy;
+
+    @FXML
+    Button buttonLogout;
 
     @FXML
     void initialize() {
@@ -56,9 +56,18 @@ public class MainController {
             overDueBookButton.setVisible(true);
             buttonCheckout.setVisible(true);
         }
+     }
+
+    @FXML
+    public void logout() {
+        Start.hideAllWindows();
+        if(!LoginWindow.INSTANCE.isInitialized()) {
+            LoginWindow.INSTANCE.init();
+        }
+        LoginWindow.INSTANCE.clear();
+        LoginWindow.INSTANCE.show();
 
     }
-
     @FXML
     public void addMemberHandler(ActionEvent e) {
         Start.hideAllWindows();

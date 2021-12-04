@@ -100,7 +100,7 @@ public class ViewCheckoutController {
         Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(CheckoutController.class.getResource("Checkout.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
-       Start.primStage().setTitle("Main");
+       Start.primStage().setTitle("Checkout");
        Start.primStage().setScene(scene);
        Start.primStage().show();
     }

@@ -45,7 +45,7 @@ public class LoginWindow extends Stage implements LibWindow {
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
-
+        LoginWindow.INSTANCE.setTitle("Login");
         Text scenetitle = new Text("Login");
         scenetitle.setFont(Font.font("Harlow Solid Italic", FontWeight.NORMAL, 20)); //Tahoma
         grid.add(scenetitle, 0, 0, 2, 1);
