@@ -4,6 +4,7 @@ import business.Author;
 import business.Book;
 import business.book.BookController;
 import business.book.iBookController;
+import dataaccess.DataAccessFacade;
 import dataaccess.TestData;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -13,7 +14,9 @@ import ui.author.AuthorWindow;
 import ui.main.MainWindow;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Optional;
 
 public class BookWindowController {
 
@@ -77,26 +80,28 @@ public class BookWindowController {
 
     @FXML
     public void addNewBook() {
-        if(textFieldISBN.getText().trim().equalsIgnoreCase(""))
-        {
+        if (textFieldISBN.getText().trim().equalsIgnoreCase("")) {
             Utils.SHOW_ERROR_ALERT("Please enter book ISBN");
             return;
         }
 
-        if(textFieldBookTitle.getText().trim().equalsIgnoreCase(""))
-        {
+        if (textFieldBookTitle.getText().trim().equalsIgnoreCase("")) {
             Utils.SHOW_ERROR_ALERT("Please enter book title");
             return;
         }
-        if(textMaxCheckoutNum.getText().trim().equalsIgnoreCase(""))
-        {
+        if (textMaxCheckoutNum.getText().trim().equalsIgnoreCase("")) {
             Utils.SHOW_ERROR_ALERT("Please enter book max checkout count");
             return;
         }
 
-        if(tableAuhtors.getItems().size()==0){
+        if (tableAuhtors.getItems().size() == 0) {
 
             Utils.SHOW_ERROR_ALERT("Please enter at least one author");
+            return;
+        }
+
+        if (isISBNexist(textFieldISBN.getText())) {
+            Utils.SHOW_ERROR_ALERT("Book is already exist");
             return;
         }
        /* ArrayList<Author> authorArrayList = new ArrayList<>();
@@ -108,6 +113,13 @@ public class BookWindowController {
         iBookController iBookController = new BookController();
         iBookController.addNewBook(book);
         tableBooksData.getItems().add(book);
+    }
+
+    private boolean isISBNexist(String text) {
+        DataAccessFacade facade = new DataAccessFacade();
+        HashMap<String, Book> bookHashMap = facade.readBooksMap();
+        if (bookHashMap.containsKey(isbn)) return true;
+        return false;
     }
 
     @FXML
