@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AddMemberWindowController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label text="Member ID" GridPane.rowIndex="1">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label text="First Name" GridPane.rowIndex="2">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label text="Last Name" GridPane.rowIndex="3">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label text="Street" GridPane.rowIndex="4">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label text="City" GridPane.rowIndex="5">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label text="State" GridPane.rowIndex="6">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label text="ZIP" GridPane.rowIndex="7">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label text="Telephone Number" GridPane.rowIndex="8">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="300.0" text="Back" GridPane.rowIndex="9">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="memberIDField" prefHeight="45.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="firstNameField" prefHeight="45.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="lastNameField" prefHeight="44.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="streetField" prefHeight="47.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <TextField fx:id="cityField" prefHeight="45.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <TextField fx:id="stateField" prefHeight="44.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <TextField fx:id="zipField" prefHeight="46.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <TextField fx:id="telNumField" prefHeight="44.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <Button fx:id="addButton" mnemonicParsing="false" onAction="#addMember" prefHeight="44.0" prefWidth="303.0" text="Add" GridPane.columnIndex="1" GridPane.rowIndex="9">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="message" prefHeight="37.0" prefWidth="279.0" GridPane.columnIndex="1">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+   </children>
+</GridPane>

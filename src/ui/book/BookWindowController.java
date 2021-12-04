@@ -4,20 +4,19 @@ import business.Author;
 import business.Book;
 import business.book.BookController;
 import business.book.iBookController;
-import dataaccess.TestData;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.Utils;
 import ui.author.AuthorWindow;
 import ui.main.MainWindow;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 public class BookWindowController {
-
-
     @FXML
     TextField textFieldISBN;
     @FXML
@@ -26,13 +25,10 @@ public class BookWindowController {
     TextField textMaxCheckoutNum;
     @FXML
     TextField textFieldCopyNum;
-
     @FXML
     Button buttonAddAuthor;
     @FXML
     Button buttonAddBook;
-
-
     @FXML
     TableView<Author> tableAuhtors = new TableView<>();
     @FXML
@@ -41,7 +37,6 @@ public class BookWindowController {
     TableColumn<Author, String> lastName;
     @FXML
     TableColumn<Author, String> bio;
-
     @FXML
     TableView<Book> tableBooksData;
     @FXML
@@ -53,7 +48,6 @@ public class BookWindowController {
     @FXML
     Button buttonClose;
 
-
     public BookWindowController() {
     }
 
@@ -62,13 +56,11 @@ public class BookWindowController {
         isbn.setCellValueFactory(new PropertyValueFactory<Book, String>("isbn"));
         title.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
         maxCheckoutLength.setCellValueFactory(new PropertyValueFactory<Book, Integer>("maxCheckoutLength"));
-
     }
 
 
     @FXML
     public void close() {
-
         BookWindow.INSTANCE.hide();
         if (!MainWindow.primStage().isShowing()) {
             MainWindow.primStage().show();
@@ -77,24 +69,21 @@ public class BookWindowController {
 
     @FXML
     public void addNewBook() {
-        if(textFieldISBN.getText().trim().equalsIgnoreCase(""))
-        {
+        if (textFieldISBN.getText().trim().equalsIgnoreCase("")) {
             Utils.SHOW_ERROR_ALERT("Please enter book ISBN");
             return;
         }
 
-        if(textFieldBookTitle.getText().trim().equalsIgnoreCase(""))
-        {
+        if (textFieldBookTitle.getText().trim().equalsIgnoreCase("")) {
             Utils.SHOW_ERROR_ALERT("Please enter book title");
             return;
         }
-        if(textMaxCheckoutNum.getText().trim().equalsIgnoreCase(""))
-        {
+        if (textMaxCheckoutNum.getText().trim().equalsIgnoreCase("")) {
             Utils.SHOW_ERROR_ALERT("Please enter book max checkout count");
             return;
         }
 
-        if(tableAuhtors.getItems().size()==0){
+        if (tableAuhtors.getItems().size() == 0) {
 
             Utils.SHOW_ERROR_ALERT("Please enter at least one author");
             return;
@@ -122,7 +111,8 @@ public class BookWindowController {
     @FXML
     public void addAuthorToList(Author newAuthor) {
         tableAuhtors.getItems().add(newAuthor);
-        // textFieldBookTitle.setText(newAuthor.getFirstName());
+        tableAuhtors.refresh();
+
 
     }
 }
