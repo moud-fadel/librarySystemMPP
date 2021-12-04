@@ -209,7 +209,7 @@ public class CheckoutController {
         stage.close();
         Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(ViewCheckoutController.class.getResource("view_checkout.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
+        Scene scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH, Utils.SCREE_HEIGHT);
        Start.primStage().setTitle("View Checkout");
        Start.primStage().setScene(scene);
        Start.primStage().show();
@@ -220,7 +220,7 @@ public class CheckoutController {
         stage.close();
         Stage viewCheckoutStage = new Stage();*/
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("main_view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
+        Scene scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH, Utils.SCREE_HEIGHT);
         Start.primStage().setTitle("Main");
         Start.primStage().setScene(scene);
         Start.primStage().show();

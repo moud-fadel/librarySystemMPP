@@ -62,7 +62,7 @@ public class MainWindowCopy extends Application {
 
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindowCopy.class.getResource("main_view.fxml"));
             Scene scene = null;
-            scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
+            scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH, Utils.SCREE_HEIGHT);
             stage.setTitle("Main");
             stage.setScene(scene);
 

@@ -19,7 +19,7 @@ public class BookWindow extends Stage implements LibWindow {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(BookWindow.class.getResource("add_book_view.fxml"));
             Scene scene = null;
-            scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_WIDTH);
+            scene = new Scene(fxmlLoader.load(), Utils.SCREE_WIDTH,  Utils.SCREE_HEIGHT);
              setTitle("Add book");
              setScene(scene);
             //  show();
