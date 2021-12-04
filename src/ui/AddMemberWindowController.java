@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import ui.main.MainWindowAlternative;
 
 import java.io.IOException;
 import java.util.List;
@@ -156,11 +157,11 @@ public class AddMemberWindowController {
 	public void back(ActionEvent event) throws IOException {
 		System.out.println("back");
 		Start.hideAllWindows();
-		if(!AdminMenu.INSTANCE.isInitialized()) {
-			AdminMenu.INSTANCE.init();
+		if(!MainWindowAlternative.INSTANCE.isInitialized()) {
+			MainWindowAlternative.INSTANCE.init();
 		}
-		AdminMenu.INSTANCE.setTitle("Welcome Admin");
-		AdminMenu.INSTANCE.show();
+		MainWindowAlternative.INSTANCE.setTitle("Welcome Admin");
+		MainWindowAlternative.INSTANCE.show();
 		
 	}
 	

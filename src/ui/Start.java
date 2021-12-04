@@ -47,7 +47,6 @@ public class Start extends Application {
 			LoginWindow.INSTANCE,
 			AllMembersWindow.INSTANCE,
 			AllBooksWindow.INSTANCE,
-			ActionsAllowedWindow.INSTANCE,
 			AdminMenu.INSTANCE,
 			AddMemberWindow.INSTANCE,
 			MainWindowAlternative.INSTANCE
@@ -128,21 +127,7 @@ public class Start extends Application {
 			}
 		});
 
-		MenuItem actionsAllowed = new MenuItem("Actions Allowed");
-		actionsAllowed.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				hideAllWindows();
-				if(!ActionsAllowedWindow.INSTANCE.isInitialized()) {
-					ActionsAllowedWindow.INSTANCE.init();
-				}
 
-				ActionsAllowedWindow.INSTANCE.setTitle("Actions Allowed");
-				ActionsAllowedWindow.INSTANCE.show();
-
-
-			}
-		});
 
 		MenuItem memberIds = new MenuItem("All Member Ids");
 		memberIds.setOnAction(new EventHandler<ActionEvent>() {
@@ -165,10 +150,10 @@ public class Start extends Application {
 				AllMembersWindow.INSTANCE.show();
 			}
 		});
-		optionsMenu.getItems().addAll(login, bookIds, actionsAllowed, memberIds);
+		 optionsMenu.getItems().addAll(login, bookIds, memberIds);
 
 		mainMenu.getMenus().addAll(optionsMenu);
-		Scene scene = new Scene(topContainer, 420, 375);
+		Scene scene = new Scene(topContainer, 800, 800);
 		primaryStage.setScene(scene);
 		scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
 		primaryStage.show();
