@@ -20,23 +20,27 @@ import javafx.stage.Stage;
 import ui.main.MainWindowAlternative;
 
 public class LoginWindow extends Stage implements LibWindow {
-	public static final LoginWindow INSTANCE = new LoginWindow();
+    public static final LoginWindow INSTANCE = new LoginWindow();
 
-	private boolean isInitialized = false;
+    private boolean isInitialized = false;
 
-	public boolean isInitialized() {
-		return isInitialized;
-	}
-	public void isInitialized(boolean val) {
-		isInitialized = val;
-	}
-	private Text messageBar = new Text();
-	public void clear() {
-		messageBar.setText("");
-	}
+    public boolean isInitialized() {
+        return isInitialized;
+    }
 
-	/* This class is a singleton */
-    private LoginWindow () {}
+    public void isInitialized(boolean val) {
+        isInitialized = val;
+    }
+
+    private Text messageBar = new Text();
+
+    public void clear() {
+        messageBar.setText("");
+    }
+
+    /* This class is a singleton */
+    private LoginWindow() {
+    }
 
     public void init() {
         GridPane grid = new GridPane();
@@ -60,7 +64,7 @@ public class LoginWindow extends Stage implements LibWindow {
 
         Label pw = new Label("Password:");
         grid.add(pw, 0, 2);
-        grid.setGridLinesVisible(false) ;
+        grid.setGridLinesVisible(false);
 
         PasswordField pwBox = new PasswordField();
         grid.add(pwBox, 1, 2);
@@ -73,7 +77,8 @@ public class LoginWindow extends Stage implements LibWindow {
 
         HBox messageBox = new HBox(10);
         messageBox.setAlignment(Pos.BOTTOM_RIGHT);
-        messageBox.getChildren().add(messageBar);;
+        messageBox.getChildren().add(messageBar);
+        ;
         grid.add(messageBox, 1, 6);
 
         Button backBtn = new Button("<= Back to Main");
@@ -87,8 +92,7 @@ public class LoginWindow extends Stage implements LibWindow {
                 Auth currentAuthentication = c.login(userTextField.getText().trim(), pwBox.getText().trim());
                 messageBar.setFill(Start.Colors.green);
                 messageBar.setText("Login successful");
-               // Start.hideAllWindows();
-
+                // Start.hideAllWindows();
 
 
                 //Start.primStage().show();
@@ -114,15 +118,15 @@ public class LoginWindow extends Stage implements LibWindow {
                     MainWindowAlternative.INSTANCE.setTitle("Main Window Alternative");
                      MainWindowAlternative.INSTANCE.show();
                 }*/
-
-                if(!MainWindowAlternative.INSTANCE.isInitialized()) {
+                LoginWindow.INSTANCE.hide();
+                if (!MainWindowAlternative.INSTANCE.isInitialized()) {
                     MainWindowAlternative.INSTANCE.credintials = currentAuthentication;
                     MainWindowAlternative.INSTANCE.init();
                 }
                 MainWindowAlternative.INSTANCE.credintials = currentAuthentication;
                 MainWindowAlternative.INSTANCE.setTitle("Main Window Alternative");
                 MainWindowAlternative.INSTANCE.show();
-            } catch(LoginException ex) {
+            } catch (LoginException ex) {
                 messageBar.setFill(Start.Colors.red);
                 messageBar.setText("Error! " + ex.getMessage());
             }
