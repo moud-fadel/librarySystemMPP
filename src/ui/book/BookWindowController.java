@@ -62,7 +62,8 @@ public class BookWindowController {
     ComboBox<Author> comboAuthors;
 
     @FXML
-    Spinner<Integer> spinnerMaxCheckout = new Spinner<>(1, 10, 1);
+    ComboBox<Integer> comboMaxCheckout = new ComboBox<>();
+
     SpinnerValueFactory<Integer> valueFactory = //
             new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
 
@@ -83,7 +84,9 @@ public class BookWindowController {
 
         TestData testData = new TestData();
         comboAuthors.setItems(FXCollections.observableArrayList(testData.allAuthors));
-        spinnerMaxCheckout.setValueFactory(valueFactory);
+       // spinnerMaxCheckout.setValueFactory(valueFactory);
+        comboMaxCheckout.getItems().add(7);
+        comboMaxCheckout.getItems().add(21);
       /*  comboAuthors.valueProperty().addListener(new ChangeListener<Author>() {
             @Override
             public void changed(ObservableValue<? extends Author> observable, Author oldValue, Author newValue) {
@@ -117,14 +120,14 @@ public class BookWindowController {
             Utils.SHOW_ERROR_ALERT("Please enter book title");
             return;
         }
-        if (spinnerMaxCheckout.getValue().toString().equalsIgnoreCase("")) {
+      /*  if (spinnerMaxCheckout.getValue().toString().equalsIgnoreCase("")) {
             Utils.SHOW_ERROR_ALERT("Please enter book max checkout count");
             return;
-        }
-        if (spinnerMaxCheckout.getValue() != 7 || spinnerMaxCheckout.getValue() != 21) {
+        }*/
+      /*  if (spinnerMaxCheckout.getValue() != 7 || spinnerMaxCheckout.getValue() != 21) {
             Utils.SHOW_ERROR_ALERT("Max checkout must be between 7 and 21");
             return;
-        }
+        }*/
         if (tableAuhtors.getItems().size() == 0) {
 
             Utils.SHOW_ERROR_ALERT("Please enter at least one author");
@@ -140,14 +143,14 @@ public class BookWindowController {
         authorArrayList.addAll(tableAuhtors.getItems());
         Book book = new Book(textFieldISBN.getText().toString()
                 , textFieldBookTitle.getText().toLowerCase(Locale.ROOT),
-                Integer.parseInt(spinnerMaxCheckout.getValue().toString()), authorArrayList);
+                Integer.parseInt(comboMaxCheckout.getValue().toString()), authorArrayList);
         iBookController iBookController = new BookController();
         iBookController.addNewBook(book);
         tableBooksData.getItems().add(book);
         tableAuhtors.getItems().clear();
         textFieldISBN.setText("");
         textFieldBookTitle.setText("");
-        spinnerMaxCheckout.getValueFactory().setValue(1);
+      //  spinnerMaxCheckout.getValueFactory().setValue(1);
     }
 
     private boolean isISBNexist(String text) {

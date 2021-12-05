@@ -78,7 +78,7 @@ public class BookCopyWindowController {
         loadBooksData();
 
 
-        tableBooksData.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Book>() {
+            tableBooksData.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Book>() {
             @Override
             public void changed(ObservableValue<? extends Book> observable, Book oldValue, Book newValue) {
                 tableBooksCopyData.getItems().setAll(observable.getValue().getCopies());
@@ -90,11 +90,14 @@ public class BookCopyWindowController {
             public void handle(ActionEvent event) {
                 Book newCopy = tableBooksData.getSelectionModel().getSelectedItem();
                 newCopy.addCopy();
-                tableBooksCopyData.getItems().add(newCopy.getCopies()[newCopy.getCopies().length-1]);
 
                 //save to database
                 DataAccessFacade dataAccessFacade = new DataAccessFacade();
                 dataAccessFacade.saveBook(newCopy);
+
+                tableBooksCopyData.getItems().add(newCopy.getCopies()[newCopy.getCopies().length-1]);
+
+
                 tableBooksCopyData.refresh();
             }
         });
